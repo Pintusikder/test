@@ -1,0 +1,22 @@
+{
+    "name": "ArthaNex",
+    "short_name": "ArthaNex",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#F5F5F5",
+    "theme_color": "#F36C21",
+    "description": "Offline Khata Book & Cash Management App",
+    "icons": [
+        {
+            "src": "icon.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "icon.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ]
+}
