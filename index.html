@@ -589,9 +589,6 @@
         #print-area { display: none; }
         
         @media print {
-            @page {
-                margin: 5mm; /* Reduced margin to fill sides */
-            }
             body * { visibility: hidden; }
             #print-area, #print-area * { visibility: visible; }
             #print-area { 
@@ -602,10 +599,8 @@
                 width: 100%; 
                 background: white; 
                 color: #000; 
-                font-size: 11px; /* Slightly smaller font for space */
+                font-size: 12px; 
                 font-family: 'Helvetica', sans-serif;
-                margin: 0;
-                padding: 0;
             }
 
             /* --- REPORT STYLES --- */
@@ -613,34 +608,34 @@
                 display: flex;
                 align-items: flex-start;
                 justify-content: space-between;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
                 border-bottom: 2px solid #F36C21;
-                padding-bottom: 10px;
+                padding-bottom: 15px;
             }
             .pdf-logo-area { display: flex; align-items: center; gap: 10px; }
-            .pdf-logo { width: 40px; height: 40px; object-fit: contain; }
-            .pdf-title-block h1 { font-size: 20px; margin: 0; color: #F36C21; font-weight: 800; }
-            .pdf-title-block h2 { font-size: 16px; margin: 5px 0 0 0; font-weight: 600; color: #333; }
+            .pdf-logo { width: 50px; height: 50px; object-fit: contain; }
+            .pdf-title-block h1 { font-size: 24px; margin: 0; color: #F36C21; font-weight: 800; }
+            .pdf-title-block h2 { font-size: 18px; margin: 5px 0 0 0; font-weight: 600; color: #333; }
 
-            .pdf-meta { text-align: right; font-size: 10px; line-height: 1.3; color: #555; }
+            .pdf-meta { text-align: right; font-size: 11px; line-height: 1.5; color: #555; }
 
             .pdf-table {
                 width: 100%;
                 border-collapse: collapse;
-                margin-top: 5px;
-                font-size: 10px;
+                margin-top: 10px;
+                font-size: 11px;
             }
             .pdf-table th {
                 background-color: #f4f4f4;
                 color: #333;
                 font-weight: 700;
-                padding: 6px 3px;
+                padding: 8px 5px;
                 text-align: left;
                 border-bottom: 2px solid #333;
-                font-size: 9px;
+                font-size: 10px;
             }
             .pdf-table td {
-                padding: 4px 3px;
+                padding: 6px 5px;
                 border-bottom:1px solid #ddd;
                 vertical-align: top;
             }
@@ -651,111 +646,84 @@
             .row-red { background-color: #ffebee !important; color: #b71c1c; }
 
             .pdf-summary-box {
-                margin-top: 15px;
-                padding: 10px;
+                margin-top: 20px;
+                padding: 15px;
                 border: 2px solid #333;
                 background-color: #fafafa;
-                page-break-inside: avoid;
             }
             .pdf-summary-row {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 3px;
-                padding-bottom: 3px;
+                margin-bottom: 5px;
+                padding-bottom: 5px;
                 border-bottom: 1px dashed #ccc;
-                font-size: 10px;
             }
-            .pdf-summary-row:last-child { border-bottom: none; font-weight: bold; font-size: 11px; margin-top: 8px; padding-top: 8px; border-top: 2px solid #333; }
+            .pdf-summary-row:last-child { border-bottom: none; font-weight: bold; font-size: 13px; margin-top: 10px; padding-top: 10px; border-top: 2px solid #333; }
             .pdf-summary-label { font-weight: 600; }
             .pdf-summary-val { font-family: 'Courier New', monospace; font-weight: 600; }
 
-            /* --- FOOTER STYLES --- */
             .pdf-footer {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
+                margin-top: 40px;
                 text-align: center;
-                font-size: 9px;
+                font-size: 10px;
                 color: #777;
-                border-top: 1px solid #ddd;
-                padding: 5px 0;
-                background: white; /* Ensure background covers content behind */
-            }
-            /* Page Number Injection */
-            .pdf-footer::after {
-                content: "Page " counter(page) " of " counter(pages);
+                border-top:1px solid #ddd;
+                padding-top: 10px;
             }
 
             /* --- INVOICE STYLES --- */
             .invoice-layout {
-                max-width: 100%;
-                margin: 0;
-                padding: 5px; /* Reduced padding */
-                border: none;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 40px;
+                border: 1px solid #eee;
             }
             .inv-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-end;
                 border-bottom: 2px solid #333;
-                padding-bottom: 10px;
-                margin-bottom: 15px;
+                padding-bottom: 20px;
+                margin-bottom: 30px;
             }
-            .inv-title { font-size: 24px; font-weight: 800; color: #333; text-transform: uppercase; }
-            .inv-logo { width: 50px; }
+            .inv-title { font-size: 32px; font-weight: 800; color: #333; text-transform: uppercase; }
+            .inv-logo { width: 60px; }
 
-            .inv-bill-to { margin-bottom: 15px; }
-            .inv-bill-label { font-size: 10px; color: #777; text-transform: uppercase; font-weight: 700; margin-bottom: 3px; }
-            .inv-cust-name { font-size: 18px; font-weight: 700; color: #333; }
-            .inv-cust-details { font-size: 12px; color: #555; margin-top: 3px; }
+            .inv-bill-to { margin-bottom: 30px; }
+            .inv-bill-label { font-size: 12px; color: #777; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
+            .inv-cust-name { font-size: 20px; font-weight: 700; color: #333; }
+            .inv-cust-details { font-size: 14px; color: #555; margin-top: 5px; }
 
             .inv-meta-grid {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 15px;
-                margin-bottom: 15px;
+                gap: 20px;
+                margin-bottom: 30px;
                 background: #f9f9f9;
-                padding: 10px;
+                padding: 15px;
                 border-radius: 4px;
             }
-            .inv-meta-item label { display: block; font-size: 10px; color: #777; font-weight: 600; margin-bottom: 1px; }
-            .inv-meta-item span { font-size: 12px; font-weight: 600; color: #333; }
+            .inv-meta-item label { display: block; font-size: 11px; color: #777; font-weight: 600; margin-bottom: 2px; }
+            .inv-meta-item span { font-size: 14px; font-weight: 600; color: #333; }
 
             .inv-table { width: 100%; border-collapse: collapse; }
             .inv-table th { 
-                background-color: #333; color: #fff; padding: 8px 5px; text-align: left; font-size: 11px; font-weight: 600; 
+                background-color: #333; color: #fff; padding: 12px 10px; text-align: left; font-size: 12px; font-weight: 600; 
             }
-            .inv-table td { padding: 8px 5px; border-bottom: 1px solid #eee; font-size: 12px; }
+            .inv-table td { padding: 12px 10px; border-bottom: 1px solid #eee; font-size: 14px; }
             .inv-table tr:last-child td { border-bottom: none; }
-            .inv-total-row td { background-color: #f4f4f4; font-weight: 700; font-size: 14px; }
+            .inv-total-row td { background-color: #f4f4f4; font-weight: 700; font-size: 16px; }
 
-            .inv-words { margin: 10px 0; padding: 10px; background: #fdfdfd; border: 1px solid #ddd; font-style: italic; color: #555; font-size: 11px; page-break-inside: avoid; }
-            
-            .inv-footer-note {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                font-size: 9px;
-                color: #777;
-                border-top: 1px dashed #ccc;
-                padding-top: 5px;
-                background: white;
-            }
-            .inv-footer-note::after {
-                 content: "Page " counter(page) " of " counter(pages);
-            }
-
-            .inv-sign { margin-top: 20px; display: flex; justify-content: flex-end; }
-            .inv-sign-line { border-top: 1px solid #333; width: 200px; text-align: center; font-size: 11px; padding-top: 5px; }
+            .inv-words { margin: 20px 0; padding: 15px; background: #fdfdfd; border: 1px solid #ddd; font-style: italic; color: #555; }
+            .inv-footer-note { margin-top: 50px; padding-top: 20px; border-top: 1px dashed #ccc; font-size: 12px; color: #777; }
+            .inv-sign { margin-top: 40px; display: flex; justify-content: flex-end; }
+            .inv-sign-line { border-top: 1px solid #333; width: 200px; text-align: center; font-size: 12px; padding-top: 5px; }
 
             /* Print Helper Classes */
             .text-right { text-align: right; }
             .text-center { text-align: center; }
             .font-bold { font-weight: 700; }
-            .no-data { text-align: center; padding: 20px; font-size: 12px; font-style: italic; color: #777; }
+            .no-data { text-align: center; padding: 40px; font-size: 14px; font-style: italic; color: #777; }
         }
     </style>
 </head>
@@ -1283,6 +1251,16 @@
                 this.setupSettingsDropdown();
                 this.loadRecords();
                 this.cleanupOldRecords();
+                
+                // RESTORE LAST SELECTED COUNTRY
+                const savedCountryName = localStorage.getItem('arthaNex_lastCountry');
+                if (savedCountryName) {
+                    const savedCountry = this.state.config.find(c => c.name === savedCountryName);
+                    if (savedCountry) {
+                        this.selectCountry(savedCountry);
+                    }
+                }
+
                 this.updateDashboard();
                 
                 const now = new Date();
@@ -1464,7 +1442,7 @@
                 if(entryTrigger) entryTrigger.innerHTML = `${country.flag} ${country.name} (${country.currency})`;
                 const settingsTrigger = document.querySelector('#settingsCountryDropdown .custom-select__trigger span');
                 if(settingsTrigger) settingsTrigger.innerHTML = `${country.flag} ${country.name} (${country.currency})`;
-                localStorage.setItem('arthaNex_lastCountry', country.currency);
+                localStorage.setItem('arthaNex_lastCountry', country.name); // Save Country Name to remember
                 document.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
                 this.loadDenominations();
             },
@@ -1657,7 +1635,7 @@
                             </div>
                             <div class="text-right">
                                 <h1 class="inv-title">INVOICE</h1>
-                                <div style="font-size: 12px; color: #555;">#INV-${r.id}</div>
+                                <div style="font-size: 14px; color: #555;">#INV-${r.id}</div>
                             </div>
                         </div>
 
@@ -1680,7 +1658,7 @@
                             </div>
                             <div class="inv-meta-item">
                                 <label>Payment Status</label>
-                                <span style="color: ${statusColor}; border: 1px solid ${statusColor}; padding: 2px 6px; border-radius: 4px; font-size: 10px;">${statusText}</span>
+                                <span style="color: ${statusColor}; border: 1px solid ${statusColor}; padding: 2px 6px; border-radius: 4px; font-size: 12px;">${statusText}</span>
                             </div>
                             <div class="inv-meta-item">
                                 <label>Payment Mode</label>
@@ -1705,7 +1683,7 @@
                                 </tr>
                                 <tr class="inv-total-row">
                                     <td colspan="2" class="text-right">Total</td>
-                                    <td class="text-right" style="font-size: 16px;">${symbol} ${r.total.toLocaleString()}</td>
+                                    <td class="text-right" style="font-size: 18px;">${symbol} ${r.total.toLocaleString()}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1720,8 +1698,11 @@
                             <div class="inv-sign-line">Authorized Signature</div>
                         </div>
 
-                        <!-- Footer (Page Number via CSS) -->
-                        <div class="inv-footer-note"></div>
+                        <!-- Footer -->
+                        <div class="inv-footer-note">
+                            Thank you for your business.<br>
+                            Generated by ArthaNex - https://arthixa.com
+                        </div>
                     </div>
                 `;
 
@@ -1875,8 +1856,10 @@
                         </div>
                     </div>
 
-                    <!-- Footer (Page Number via CSS) -->
-                    <div class="pdf-footer"></div>
+                    <div class="pdf-footer">
+                        Generated by ArthaNex<br>
+                        https://arthixa.com
+                    </div>
                 `;
 
                 document.getElementById('print-area').innerHTML = htmlContent;
