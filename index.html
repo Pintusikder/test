@@ -611,10 +611,10 @@
                 padding-bottom: 30px; 
             }
 
-            /* PAGE SETTINGS */
+            /* PAGE SETTINGS - Reduced Margins */
             @page {
                 size: A4;
-                margin: 10mm; /* Reduced margins as requested */
+                margin: 5mm; /* Reduced from 10mm to minimize white space */
             }
 
             /* --- REPORT STYLES --- */
@@ -643,15 +643,17 @@
                 background-color: #f4f4f4;
                 color: #333;
                 font-weight: 700;
-                padding: 8px 5px;
+                padding: 4px 5px !important; /* Reduced padding */
                 text-align: left;
                 border-bottom: 2px solid #333;
                 font-size: 10px;
+                word-break: break-word; /* Ensure text wraps */
             }
             .pdf-table td {
-                padding: 6px 5px;
+                padding: 4px 5px !important; /* Reduced padding */
                 border-bottom:1px solid #ddd;
                 vertical-align: top;
+                word-break: break-word; /* Ensure text wraps to next line */
             }
             .pdf-table tr:nth-child(even) { background-color: #f9f9f9; }
 
@@ -711,7 +713,7 @@
             .invoice-layout {
                 max-width: 800px;
                 margin: 0 auto;
-                padding: 40px;
+                padding: 10px !important; /* Reduced padding for print to save space */
                 font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
                 color: #333;
                 border: none; /* Clean print look */
@@ -763,19 +765,21 @@
             .inv-table th { 
                 background-color: #333; /* Dark Header */
                 color: #fff; 
-                padding: 12px 15px; 
+                padding: 8px 10px !important; /* Tightened padding */
                 text-align: left; 
                 font-size: 12px; 
                 font-weight: 600; 
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
+                word-break: break-word;
             }
             .inv-table td { 
-                padding: 12px 15px; 
+                padding: 8px 10px !important; /* Tightened padding */
                 border-bottom: 1px solid #eee; 
                 font-size: 14px; 
                 color: #444;
                 vertical-align: middle;
+                word-break: break-word;
             }
             /* Zebra Striping */
             .inv-table tr:nth-child(even) { background-color: #fcfcfc; } 
@@ -802,6 +806,7 @@
                 color: #666; 
                 font-size: 14px;
                 border-radius: 4px;
+                word-break: break-word;
             }
 
             /* Signature Area */
@@ -1933,17 +1938,17 @@
                     <table class="pdf-table">
                         <thead>
                             <tr>
-                                <th style="width: 30px;">Sl No</th>
-                                <th style="width: 70px;">Date</th>
-                                <th style="width: 60px;">Time</th>
-                                <th style="width: 150px;">Name / Party</th>
-                                <th style="width: 120px;">Remarks / Notes</th>
-                                <th style="width: 60px;">Type</th>
+                                <th style="width: 25px;">Sl No</th>
+                                <th style="width: 60px;">Date</th>
+                                <th style="width: 50px;">Time</th>
+                                <th style="width: 140px;">Name / Party</th>
+                                <th style="width: 80px;">Remarks / Notes</th>
+                                <th style="width: 50px;">Type</th>
                                 <th>Income</th>
                                 <th>Expense</th>
                                 <th>Amount</th>
                                 <th>Words</th>
-                                <th style="width: 100px;">Payment Status</th>
+                                <th style="width: 90px;">Payment Status</th>
                             </tr>
                         </thead>
                         <tbody>
