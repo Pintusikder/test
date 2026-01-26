@@ -820,8 +820,8 @@
             /* Invoice Footer (Fixed) */
             .inv-footer-note {
                 position: fixed;
-                bottom: 0;
-                left: 0;
+                bottom: 0,
+                left: 0,
                 width: 100%;
                 margin-top: 0;
                 text-align: center;
@@ -1299,7 +1299,8 @@
         const app = {
             state: {
                 currentTheme: 'light',
-                autoDeleteEnabled: true, 
+                // FIXED: Changed default to false to prevent accidental data loss on update
+                autoDeleteEnabled: false, 
                 currentTags: [], 
                 config: [
                     { name: "United States", currency: "USD", symbol: "$", flag: "🇺🇸", denominations: [1, 2, 5, 10, 20, 50, 100] },
