@@ -375,9 +375,7 @@
         .radio-group label, .checkbox-wrapper label {
             margin: 0; font-size: 0.9rem; font-weight: 500; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 6px;
         }
-        /* FIX: Force label to be inline width */
         .checkbox-wrapper label { width: auto !important; }
-        
         .checkbox-wrapper { cursor: pointer; }
 
         .denom-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
@@ -584,6 +582,101 @@
             text-decoration: none;
             font-weight: 600;
         }
+
+        /* =========================================
+           PROFESSIONAL PDF REPORT STYLES
+           ========================================= */
+        #print-area { display: none; }
+        
+        @media print {
+            body * { visibility: hidden; }
+            #print-area, #print-area * { visibility: visible; }
+            #print-area { 
+                display: block; 
+                position: absolute; 
+                left: 0; 
+                top: 0; 
+                width: 100%; 
+                background: white; 
+                color: #000; 
+                font-size: 12px; 
+                font-family: 'Helvetica', sans-serif;
+            }
+
+            .pdf-header {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #F36C21;
+                padding-bottom: 15px;
+            }
+            .pdf-logo-area { display: flex; align-items: center; gap: 10px; }
+            .pdf-logo { width: 50px; height: 50px; object-fit: contain; }
+            .pdf-title-block h1 { font-size: 24px; margin: 0; color: #F36C21; font-weight: 800; }
+            .pdf-title-block h2 { font-size: 18px; margin: 5px 0 0 0; font-weight: 600; color: #333; }
+
+            .pdf-meta { text-align: right; font-size: 11px; line-height: 1.5; color: #555; }
+
+            .pdf-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+                font-size: 11px;
+            }
+            .pdf-table thead th {
+                background-color: #f4f4f4;
+                color: #333;
+                font-weight: 700;
+                padding: 8px 5px;
+                text-align: left;
+                border-bottom: 2px solid #333;
+                font-size: 10px;
+            }
+            .pdf-table td {
+                padding: 6px 5px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            .pdf-table tr:nth-child(even) { background-color: #f9f9f9; }
+
+            /* COLOR CODING FOR PDF */
+            .row-green { background-color: #e8f5e9 !important; color: #1b5e20; } /* Paid */
+            .row-orange { background-color: #fff3e0 !important; color: #e65100; } /* Due Payable */
+            .row-red { background-color: #ffebee !important; color: #b71c1c; } /* Due Receivable */
+
+            .pdf-summary-box {
+                margin-top: 20px;
+                padding: 15px;
+                border: 2px solid #333;
+                background-color: #fafafa;
+            }
+            .pdf-summary-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+                padding-bottom: 5px;
+                border-bottom: 1px dashed #ccc;
+            }
+            .pdf-summary-row:last-child { border-bottom: none; font-weight: bold; font-size: 13px; margin-top: 10px; padding-top: 10px; border-top: 2px solid #333; }
+            .pdf-summary-label { font-weight: 600; }
+            .pdf-summary-val { font-family: 'Courier New', monospace; font-weight: 600; }
+
+            .pdf-footer {
+                margin-top: 40px;
+                text-align: center;
+                font-size: 10px;
+                color: #777;
+                border-top: 1px solid #ddd;
+                padding-top: 10px;
+            }
+
+            /* Print Helper Classes */
+            .text-right { text-align: right; }
+            .text-center { text-align: center; }
+            .font-bold { font-weight: 700; }
+            .no-data { text-align: center; padding: 40px; font-size: 14px; font-style: italic; color: #777; }
+        }
     </style>
 </head>
 <body data-theme="light">
@@ -696,7 +789,7 @@
                     </button>
 
                     <div class="home-credits">
-                        <h3>ArthaNex v2.0.5</h3>
+                        <h3>ArthaNex v2.1.0</h3>
                         <p>Author: Pintu Sikder</p>
                         <p>By: <a href="https://arthixa.com" target="_blank">Arthixa</a></p>
                     </div>
@@ -745,7 +838,7 @@
                         <input type="tel" id="entryMobile" class="form-control" placeholder="Optional">
                     </div>
 
-                    <!-- NEW OPTIONAL ITEMS SECTION -->
+                    <!-- OPTIONAL ITEMS SECTION -->
                     <div class="form-group">
                         <label>Optional Items (Tags)</label>
                         <div class="tags-input-group">
@@ -955,7 +1048,7 @@
                 <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border);">
                 <div class="credits-container">
                     <h3>ArthaNex</h3>
-                    <p>Version 2.0.5</p>
+                    <p>Version 2.1.0</p>
                     <p>Author: Pintu Sikder</p>
                     <p>By: <a href="https://arthixa.com" target="_blank" class="By-link">Arthixa</a></p>
                 </div>
@@ -969,7 +1062,7 @@
                 <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Select Date Range</h2>
                 <div class="form-group"><label>From Date</label><input type="date" id="rangeStart" class="form-control"></div>
                 <div class="form-group"><label>To Date</label><input type="date" id="rangeEnd" class="form-control"></div>
-                <button class="btn btn-primary" onclick="app.executeRangeExport()">Export Range</button>
+                <button class="btn btn-primary" onclick="app.generateRangeReport()">Export Range</button>
             </div>
         </div>
 
@@ -980,6 +1073,11 @@
                 <h2 style="margin-bottom: 1rem; color: var(--primary);">Record Details</h2>
                 <div id="detailContent"></div>
             </div>
+        </div>
+
+        <!-- PRINTABLE AREA (Hidden from screen, visible on Print) -->
+        <div id="print-area">
+            <!-- Content injected via JS -->
         </div>
 
         <div id="toast">Message here</div>
@@ -1032,7 +1130,7 @@
             state: {
                 currentTheme: 'light',
                 autoDeleteEnabled: true, 
-                currentTags: [], // New state for tags
+                currentTags: [], 
                 config: [
                     { name: "United States", currency: "USD", symbol: "$", flag: "🇺🇸", denominations: [1, 2, 5, 10, 20, 50, 100] },
                     { name: "India", currency: "INR", symbol: "₹", flag: "🇮🇳", denominations: [1, 2, 5, 10, 20, 50, 100, 200, 500] }, 
@@ -1265,7 +1363,6 @@
                     const el = document.createElement('span');
                     el.className = 'custom-option';
                     if(this.state.selectedCountry && this.state.selectedCountry.name === c.name) el.classList.add('selected');
-                    // Add Flag Emoji here
                     el.innerHTML = `${c.flag} ${c.name} (${c.currency})`;
                     el.addEventListener('click', () => {
                         this.selectCountry(c);
@@ -1406,7 +1503,7 @@
                     time: document.getElementById('entryTime').value,
                     name: nameValue,
                     mobile: document.getElementById('entryMobile').value || "",
-                    tags: [...this.state.currentTags], // Save tags
+                    tags: [...this.state.currentTags],
                     remarks: document.getElementById('entryRemarks').value || "",
                     denominations: {...this.state.denominations},
                     total: total,
@@ -1440,7 +1537,6 @@
                 document.getElementById('entryMobile').value = "";
                 document.getElementById('entryRemarks').value = "";
                 
-                // Reset Tags
                 this.state.currentTags = [];
                 this.renderTags();
                 
@@ -1452,6 +1548,221 @@
                 const now = new Date();
                 document.getElementById('entryDate').valueAsDate = now;
                 document.getElementById('entryTime').value = now.toTimeString().substring(0,5);
+            },
+
+            /* =========================================
+               PROFESSIONAL PDF GENERATION LOGIC
+               ========================================= */
+            formatDisplayDate: function(dateStr) {
+                const d = new Date(dateStr);
+                return d.toLocaleDateString('en-GB'); // DD/MM/YYYY format
+            },
+            formatDisplayDateTime: function() {
+                const now = new Date();
+                return now.toLocaleString('en-GB'); // DD/MM/YYYY, HH:mm
+            },
+
+            generatePDFReport: function(records, title, dateRangeStr) {
+                if(records.length === 0) {
+                    this.showToast("No transactions available for selected period");
+                    return;
+                }
+
+                const symbol = this.state.selectedCountry ? this.state.selectedCountry.symbol : '';
+                const currency = this.state.selectedCountry ? this.state.selectedCountry.currency : '';
+
+                // CALCULATIONS
+                let totalIncome = 0;
+                let totalExpense = 0;
+                let totalReceivable = 0;
+                let totalPayable = 0;
+                let netBalance = 0;
+
+                const tableRows = records.map((r, index) => {
+                    let incomeVal = r.type === 'income' ? r.total : 0;
+                    let expenseVal = r.type === 'expense' ? r.total : 0;
+                    
+                    totalIncome += incomeVal;
+                    totalExpense += expenseVal;
+                    
+                    // Determine Color Class
+                    let rowClass = '';
+                    let statusDisplay = '';
+                    
+                    if(r.status === 'Paid') {
+                        rowClass = 'row-green';
+                        statusDisplay = 'Paid';
+                    } else {
+                        if(r.type === 'expense') {
+                            rowClass = 'row-orange'; // Payable
+                            statusDisplay = 'Due (Payable)';
+                            totalPayable += r.total;
+                        } else {
+                            rowClass = 'row-red'; // Receivable
+                            statusDisplay = 'Due (Receivable)';
+                            totalReceivable += r.total;
+                        }
+                    }
+
+                    const amountInWords = this.numberToWords(r.total);
+                    const typeDisplay = r.type === 'income' ? 'Income' : 'Expense';
+
+                    // Item Tags
+                    const tagDisplay = r.tags && r.tags.length > 0 ? `<br><small style="color:#666">Items: ${r.tags.join(', ')}</small>` : '';
+
+                    return `
+                        <tr class="${rowClass}">
+                            <td>${index + 1}</td>
+                            <td>${this.formatDisplayDate(r.date)}</td>
+                            <td>${r.time}</td>
+                            <td>
+                                <strong>${r.name}</strong>
+                                ${tagDisplay}
+                                ${r.mobile ? `<br><small>${r.mobile}</small>` : ''}
+                            </td>
+                            <td>${r.remarks || '-'}</td>
+                            <td>${typeDisplay}</td>
+                            <td>${incomeVal > 0 ? symbol + ' ' + incomeVal.toLocaleString() : '-'}</td>
+                            <td>${expenseVal > 0 ? symbol + ' ' + expenseVal.toLocaleString() : '-'}</td>
+                            <td class="font-bold">${symbol} ${r.total.toLocaleString()}</td>
+                            <td><small>${amountInWords} ${currency}</small></td>
+                            <td><strong>${statusDisplay}</strong></td>
+                        </tr>
+                    `;
+                }).join('');
+
+                netBalance = totalIncome - totalExpense;
+
+                const generatedOn = this.formatDisplayDateTime();
+
+                const htmlContent = `
+                    <div class="pdf-header">
+                        <div class="pdf-logo-area">
+                            <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" class="pdf-logo" alt="Logo">
+                            <div class="pdf-title-block">
+                                <h1>ArthaNex</h1>
+                                <h2>${title}</h2>
+                            </div>
+                        </div>
+                        <div class="pdf-meta">
+                            <strong>Date Range:</strong><br>
+                            ${dateRangeStr}<br><br>
+                            <strong>Generated On:</strong><br>
+                            ${generatedOn}
+                        </div>
+                    </div>
+
+                    <table class="pdf-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 30px;">Sl No</th>
+                                <th style="width: 70px;">Date</th>
+                                <th style="width: 60px;">Time</th>
+                                <th style="width: 150px;">Name / Party</th>
+                                <th style="width: 120px;">Remarks / Notes</th>
+                                <th style="width: 60px;">Type</th>
+                                <th>Income</th>
+                                <th>Expense</th>
+                                <th>Amount</th>
+                                <th>Words</th>
+                                <th style="width: 100px;">Payment Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${tableRows}
+                        </tbody>
+                    </table>
+
+                    <div class="pdf-summary-box">
+                        <div class="pdf-summary-row">
+                            <span class="pdf-summary-label">Total Income:</span>
+                            <span class="pdf-summary-val" style="color:green">${symbol} ${totalIncome.toLocaleString()}</span>
+                        </div>
+                        <div class="pdf-summary-row">
+                            <span class="pdf-summary-label">Total Expense:</span>
+                            <span class="pdf-summary-val" style="color:red">${symbol} ${totalExpense.toLocaleString()}</span>
+                        </div>
+                        <div class="pdf-summary-row">
+                            <span class="pdf-summary-label">Total Receivable (Due - Income):</span>
+                            <span class="pdf-summary-val" style="color:#b71c1c">${symbol} ${totalReceivable.toLocaleString()}</span>
+                        </div>
+                        <div class="pdf-summary-row">
+                            <span class="pdf-summary-label">Total Payable (Due - Expense):</span>
+                            <span class="pdf-summary-val" style="color:#e65100">${symbol} ${totalPayable.toLocaleString()}</span>
+                        </div>
+                        <div class="pdf-summary-row">
+                            <span class="pdf-summary-label">Net Balance (Income - Expense):</span>
+                            <span class="pdf-summary-val">${symbol} ${netBalance.toLocaleString()}</span>
+                        </div>
+                    </div>
+
+                    <div class="pdf-footer">
+                        Generated by ArthaNex<br>
+                        https://arthixa.com
+                    </div>
+                `;
+
+                document.getElementById('print-area').innerHTML = htmlContent;
+                window.print();
+            },
+
+            exportLast30Days: function() {
+                const today = new Date();
+                const thirtyDaysAgo = new Date(); 
+                thirtyDaysAgo.setDate(today.getDate() - 30);
+                
+                // Filter records
+                const filtered = this.state.records.filter(r => {
+                    const rDate = new Date(r.date);
+                    return rDate >= thirtyDaysAgo && rDate <= today;
+                });
+
+                if(filtered.length === 0) {
+                    this.showToast("No transactions in the last 30 days.");
+                    return;
+                }
+
+                const startISO = this.formatDisplayDate(thirtyDaysAgo);
+                const endISO = this.formatDisplayDate(today);
+                const rangeStr = `From: ${startISO} To: ${endISO}`;
+
+                this.generatePDFReport(filtered, "30 Days Transaction Report", rangeStr);
+            },
+
+            generateRangeReport: function() {
+                const startStr = document.getElementById('rangeStart').value;
+                const endStr = document.getElementById('rangeEnd').value;
+                
+                if(!startStr || !endStr) {
+                    this.showToast("Please select both dates.");
+                    return;
+                }
+                if(startStr > endStr) {
+                    this.showToast("Invalid date range.");
+                    return;
+                }
+
+                const startDate = new Date(startStr);
+                const endDate = new Date(endStr);
+                endDate.setHours(23, 59, 59); // Include full end day
+
+                const filtered = this.state.records.filter(r => {
+                    const rDate = new Date(r.date);
+                    return rDate >= startDate && rDate <= endDate;
+                });
+
+                if(filtered.length === 0) {
+                    this.showToast("No records found for this range.");
+                    this.toggleModal('dateRangeModal');
+                    return;
+                }
+
+                const startDisplay = this.formatDisplayDate(startStr);
+                const endDisplay = this.formatDisplayDate(endStr);
+                const rangeDisplay = `From: ${startDisplay} To: ${endDisplay}`;
+
+                this.generatePDFReport(filtered, "Transaction Report (Date Range)", rangeDisplay);
+                this.toggleModal('dateRangeModal');
             },
 
             renderOutstanding: function(filterType) {
@@ -1623,7 +1934,6 @@
                         const amountClass = r.type === 'expense' ? 'amount-expense' : 'amount-income';
                         const amountWords = this.numberToWords(r.total) + " " + r.currency;
 
-                        // Render Tags if present
                         const tagsHtml = r.tags && r.tags.length > 0 
                             ? `<div class="h-tags">🏷 ${r.tags.join(', ')}</div>` 
                             : '';
@@ -1655,43 +1965,6 @@
                         list.appendChild(li);
                     });
                 }
-            },
-            exportLast30Days: function() {
-                const today = new Date();
-                const thirtyDaysAgo = new Date(); thirtyDaysAgo.setDate(today.getDate() - 30);
-                const startISO = thirtyDaysAgo.toISOString().split('T')[0];
-                const endISO = today.toISOString().split('T')[0];
-                const filtered = this.state.records.filter(r => r.date >= startISO && r.date <= endISO);
-                if(filtered.length === 0) return this.showToast("No records in last 30 days.");
-                const list = document.getElementById('historyList');
-                const originalContent = list.innerHTML;
-                list.innerHTML = filtered.map(r => `
-                    <li class="history-item">
-                        <div class="h-left"><span class="h-name">${r.name}</span><div class="h-details"><div class="h-detail-row"><span>Date:</span> <span>${r.date}</span></div></div></div>
-                        <div class="h-right"><span class="h-amount">${r.symbol} ${r.total.toLocaleString()}</span></div>
-                    </li>`).join('');
-                const originalTitle = document.title; document.title = "ArthaNex_Report"; window.print();
-                setTimeout(() => { document.title = originalTitle; this.renderHistory(); }, 1000);
-            },
-            openRangeModal: function() {
-                document.getElementById('rangeStart').value = ""; document.getElementById('rangeEnd').value = ""; this.toggleModal('dateRangeModal');
-            },
-            executeRangeExport: function() {
-                const start = document.getElementById('rangeStart').value;
-                const end = document.getElementById('rangeEnd').value;
-                if(!start || !end) return this.showToast("Please select both dates.");
-                if(start > end) return this.showToast("Invalid date range.");
-                const filtered = this.state.records.filter(r => r.date >= start && r.date <= end);
-                if(filtered.length === 0) return this.showToast("No records found.");
-
-                const list = document.getElementById('historyList');
-                list.innerHTML = filtered.map(r => `
-                    <li class="history-item">
-                        <div class="h-left"><span class="h-name">${r.name}</span><div class="h-details"><div class="h-detail-row"><span>Date:</span> <span>${r.date}</span></div></div></div>
-                        <div class="h-right"><span class="h-amount">${r.symbol} ${r.total.toLocaleString()}</span></div>
-                    </li>`).join('');
-                const originalTitle = document.title; document.title = "ArthaNex_Report"; window.print();
-                setTimeout(() => { document.title = originalTitle; this.renderHistory(); this.toggleModal('dateRangeModal'); }, 1000);
             },
             viewRecord: function(id) {
                 const r = this.state.records.find(rec => rec.id === id);
