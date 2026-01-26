@@ -1740,7 +1740,9 @@
                 const symbol = r.symbol;
                 const currency = r.currency;
                 const totalInWords = this.numberToWords(r.total) + " " + r.currency;
-                const itemsDesc = (r.tags && r.tags.length > 0) ? r.tags.join(', ') : (r.remarks || "Payment Received");
+                // Added "Items: " label here to ensure visibility in Invoice PDF
+                const itemsDesc = (r.tags && r.tags.length > 0) ? 'Items: ' + r.tags.join(', ') : (r.remarks || "Payment Received");
+                
                 const statusText = r.status === 'Paid' ? "PAID" : "DUE";
                 const statusColor = r.status === 'Paid' ? "#2e7d32" : "#c62828";
                 const invoiceNo = "#INV-" + r.id.toString().slice(-6); // Shorter Invoice No
@@ -2256,6 +2258,8 @@
                 const inWords = this.numberToWords(r.total) + " " + r.currency;
                 const typeBadge = r.type === 'expense' ? '<span class="badge expense">Payable</span>' : '<span class="badge receivable">Income</span>';
                 const statusBadge = r.status === 'Due' ? '<span class="badge due">Due</span>' : '';
+                
+                // Ensuring items are shown explicitly in View Details Modal
                 const tagsHtml = r.tags && r.tags.length > 0 ? `<div class="detail-row"><span>Items:</span> <span>${r.tags.join(', ')}</span></div>` : '';
 
                 let transactionText = "";
