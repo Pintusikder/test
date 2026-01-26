@@ -775,7 +775,7 @@
             }
             .inv-table td { 
                 padding: 5px 8px !important; /* Tightened padding */
-                border-bottom: 1px solid #eee; 
+                border-bottom:1px solid #eee; 
                 font-size: 12px; 
                 color: #444;
                 vertical-align: middle;
@@ -1304,7 +1304,7 @@
         const app = {
             state: {
                 currentTheme: 'light',
-                autoDeleteEnabled: true, 
+                autoDeleteEnabled: false, // Changed to false to prevent data loss on update
                 currentTags: [], 
                 config: [
                     { name: "United States", currency: "USD", symbol: "$", flag: "🇺🇸", denominations: [1, 2, 5, 10, 20, 50, 100] },
@@ -1373,7 +1373,7 @@
                 this.setupDropdown();
                 this.setupSettingsDropdown();
                 this.loadRecords();
-                this.cleanupOldRecords();
+                // cleanupOldRecords() removed to prevent data loss on update
                 
                 // RESTORE LAST SELECTED COUNTRY
                 const savedCountryName = localStorage.getItem('arthaNex_lastCountry');
@@ -1703,7 +1703,14 @@
             },
             loadRecords: function() {
                 const stored = localStorage.getItem('arthaNex_records');
-                if(stored) this.state.records = JSON.parse(stored);
+                if(stored) {
+                    try {
+                        this.state.records = JSON.parse(stored);
+                    } catch (e) {
+                        console.error("Error loading records", e);
+                        this.state.records = [];
+                    }
+                }
             },
             cleanupOldRecords: function() {
                 if (!this.state.autoDeleteEnabled) return;
