@@ -1857,10 +1857,13 @@
                 const thirtyDaysAgo = new Date(); 
                 thirtyDaysAgo.setDate(today.getDate() - 30);
                 
-                // Filter records
+                // Get date strings (YYYY-MM-DD) to avoid timezone issues
+                const todayStr = today.toISOString().split('T')[0];
+                const startStr = thirtyDaysAgo.toISOString().split('T')[0];
+
+                // Filter records by comparing strings directly
                 const filtered = this.state.records.filter(r => {
-                    const rDate = new Date(r.date);
-                    return rDate >= thirtyDaysAgo && rDate <= today;
+                    return r.date >= startStr && r.date <= todayStr;
                 });
 
                 if(filtered.length === 0) {
@@ -1868,11 +1871,13 @@
                     return;
                 }
 
-                const startISO = this.formatDisplayDate(thirtyDaysAgo);
-                const endISO = this.formatDisplayDate(today);
-                const rangeStr = `From: ${startISO} To: ${endISO}`;
+                const rangeStr = `From: ${this.formatDisplayDate(startStr)} To: ${this.formatDisplayDate(todayStr)}`;
 
                 this.generatePDFReport(filtered, "30 Days Transaction Report", rangeStr);
+            },
+            
+            openRangeModal: function() {
+                this.toggleModal('dateRangeModal');
             },
 
             generateRangeReport: function() {
@@ -1888,13 +1893,10 @@
                     return;
                 }
 
-                const startDate = new Date(startStr);
-                const endDate = new Date(endStr);
-                endDate.setHours(23, 59, 59); // Include full end day
-
+                // FIX: Compare strings directly (YYYY-MM-DD) to avoid timezone conversion bugs
+                // No need to create Date objects which are susceptible to local vs UTC offsets.
                 const filtered = this.state.records.filter(r => {
-                    const rDate = new Date(r.date);
-                    return rDate >= startDate && rDate <= endDate;
+                    return r.date >= startStr && r.date <= endStr;
                 });
 
                 if(filtered.length === 0) {
