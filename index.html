@@ -10,7 +10,7 @@
     
     <title>ArthaNex - Offline Khata Book</title>
     <meta name="description" content="ArthaNex is best free offline Khata book and daily cash collection app. Manage small business ledger, party dues, and expenses without internet. Simple business calculator.">
-    <meta name="theme-color" content="#F67B34">
+    <meta name="theme-color" content="#F36C21">
     
     <!-- Manifest Link -->
     <link rel="manifest" href="manifest.json">
@@ -22,11 +22,9 @@
 
     <style>
         :root {
-            /* Default Color - Will be overridden by JS */
-            --primary: #F67B34;       
+            --primary: #F36C21;       
             --primary-hover: #D65612;
             --accent: #FF8A3D;        
-            
             --secondary: #1C1C1C;     
             --neutral: #6B6E63;       
             --light-bg: #F5F5F5;      
@@ -99,7 +97,7 @@
         header {
             background-color: var(--primary);
             color: #fff;
-            padding:0.8rem 1rem;
+            padding:1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -107,23 +105,9 @@
         }
 
         .brand { display: flex; align-items: center; gap: 10px; flex-direction: column; align-items: flex-start; }
-        .brand-top { display: flex; align-items: center; gap: 10px; width: 100%; }
+        .brand-top { display: flex; align-items: center; gap: 10px; }
         .brand h1 { font-size:1.25rem; font-weight: 700; margin: 0; line-height: 1; }
         
-        /* Active Profile Name in Header */
-        .current-profile-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-top: 2px;
-            cursor: pointer;
-        }
-
         .brand-icon { 
             width: 40px; 
             height: 40px; 
@@ -417,8 +401,6 @@
         .btn-secondary { background-color: var(--neutral); color: #fff; }
         .btn-success { background-color: #2e7d32; color: #fff; }
         .btn-outline { background-color: transparent; border: 1px solid var(--neutral); color: var(--neutral); }
-        .btn-danger { background-color: #dc3545; color: #fff; }
-        .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.8rem; width: auto; }
 
         /* TAGS STYLES */
         .tags-input-group { display: flex; gap: 8px; }
@@ -580,22 +562,6 @@
         .open .arrow::after { left: 3px; transform: rotate(-45deg); }
         .search-hint { font-size: 0.75rem; color: var(--neutral); margin-top: 5px; font-style: italic; }
 
-        /* Profile List Styles */
-        .profile-list { list-style: none; margin-top: 10px; }
-        .profile-item {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-sm);
-            margin-bottom: 8px; background: var(--card-bg);
-        }
-        .profile-item.active { border-color: var(--primary); background-color: rgba(243, 108, 33, 0.05); }
-        .profile-name { font-weight: 600; font-size: 0.9rem; color: var(--text-color); }
-        .profile-actions { display: flex; gap: 5px; }
-        .profile-btn {
-            padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; border: none; font-weight: 600;
-        }
-        .btn-switch { background-color: var(--primary); color: #fff; }
-        .btn-delete { background-color: #dc3545; color: #fff; }
-
         .credits-container {
             text-align: center;
             margin-top: 1.5rem;
@@ -653,15 +619,16 @@
 
             /* --- REPORT STYLES --- */
             .pdf-header {
-                display: flex,
-                align-items: flex-start,
-                justify-content: space-between,
-                margin-bottom: 20px,
-                border-bottom: 2px solid #F67B34; /* Fixed Orange for print brand consistency usually, but can use var if needed */
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #F36C21;
+                padding-bottom: 15px;
             }
             .pdf-logo-area { display: flex; align-items: center; gap: 10px; }
             .pdf-logo { width: 50px; height: 50px; object-fit: contain; }
-            .pdf-title-block h1 { font-size: 24px; margin: 0; color: #F67B34; font-weight: 800; }
+            .pdf-title-block h1 { font-size: 24px; margin: 0; color: #F36C21; font-weight: 800; }
             .pdf-title-block h2 { font-size: 18px; margin: 5px 0 0 0; font-weight: 600; color: #333; }
 
             .pdf-meta { text-align: right; font-size: 11px; line-height: 1.5; color: #555; }
@@ -702,11 +669,11 @@
                 margin-bottom: 35px; /* Reduced margin to fit new footer */
             }
             .pdf-summary-row {
-                display: flex,
-                justify-content: space-between,
-                margin-bottom: 5px,
-                padding-bottom: 5px,
-                border-bottom: 1px dashed #ccc,
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+                padding-bottom: 5px;
+                border-bottom: 1px dashed #ccc;
             }
             .pdf-summary-row:last-child { border-bottom: none; font-weight: bold; font-size: 13px; margin-top: 10px; padding-top: 10px; border-top: 2px solid #333; }
             .pdf-summary-label { font-weight: 600; }
@@ -715,75 +682,75 @@
             /* UPDATED FOOTER: Left-Center-Right */
             .pdf-footer {
                 position: fixed;
-                bottom: 0,
-                left: 0,
-                width: 100%,
+                bottom: 0;
+                left: 0;
+                width: 100%;
                 height: 30px; /* Ensure height for absolute positioning children */
-                display: flex,
+                display: flex;
                 justify-content: center; /* Center URL text */
-                align-items: center,
+                align-items: center;
                 font-size: 9px; 
-                color: #777,
-                border-top: 1px solid #ddd,
-                background: #fff,
-                z-index: 9999,
-                line-height: 1.2,
+                color: #777;
+                border-top: 1px solid #ddd;
+                background: #fff;
+                z-index: 9999;
+                line-height: 1.2;
             }
             /* Left Element */
             .pdf-footer::before {
-                content: "Generated by ArthaNex",
-                position: absolute,
-                left: 10px,
+                content: "Generated by ArthaNex";
+                position: absolute;
+                left: 10px;
             }
             /* Right Element */
             .pdf-footer::after {
-                content: "Page " counter(page),
-                position: absolute,
-                right: 10px,
+                content: "Page " counter(page);
+                position: absolute;
+                right: 10px;
             }
 
             /* --- PROFESSIONAL INVOICE STYLES --- */
             .invoice-layout {
-                max-width: 800px,
-                margin: 0 auto,
+                max-width: 800px;
+                margin: 0 auto;
                 padding: 10px !important; /* Reduced padding for print to save space */
-                font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif,
-                color: #333,
+                font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+                color: #333;
                 border: none; /* Clean print look */
             }
 
             /* Professional Header */
             .inv-header {
-                display: flex,
-                justify-content: space-between,
-                align-items: flex-start,
-                border-bottom: 3px solid #F67B34; /* Brand Accent Line */
-                padding-bottom: 20px,
-                margin-bottom: 30px,
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                border-bottom: 3px solid #F36C21; /* Brand Accent Line */
+                padding-bottom: 20px;
+                margin-bottom: 30px;
             }
-            .inv-brand-info h1 { font-size: 28px; margin: 0 0 5px 0; color: #F67B34; font-weight: 800; letter-spacing: -0.5px; }
+            .inv-brand-info h1 { font-size: 28px; margin: 0 0 5px 0; color: #F36C21; font-weight: 800; letter-spacing: -0.5px; }
             .inv-brand-info p { margin: 0; font-size: 12px; color: #666; }
             
             .inv-title-section { text-align: right; }
             .inv-title { font-size: 42px; font-weight: 800; color: #333; text-transform: uppercase; line-height: 1; margin: 0 0 5px 0; }
             .inv-meta-grid {
-                margin-top: 15px,
-                display: grid,
-                grid-template-columns: auto 1fr,
-                gap: 5px 15px,
-                font-size: 13px,
-                align-items: center,
+                margin-top: 15px;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 5px 15px;
+                font-size: 13px;
+                align-items: center;
             }
             .inv-meta-label { font-weight: 600; color: #666; text-align: right; }
             .inv-meta-value { font-weight: 600; color: #333; }
             
             /* Bill To Box */
             .inv-bill-to {
-                margin-bottom: 30px,
-                background-color: #f9f9f9,
-                padding: 20px,
-                border-radius: 4px,
-                border-left: 4px solid #F67B34,
+                margin-bottom: 30px;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 4px;
+                border-left: 4px solid #F36C21;
             }
             .inv-bill-label { font-size: 11px; color: #888; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
             .inv-cust-name { font-size: 20px; font-weight: 700; color: #333; margin-bottom: 5px; }
@@ -827,7 +794,7 @@
                 color: #000;
                 border-top: 2px solid #ddd;
             }
-            .inv-total-row .text-right { color: #F67B34; font-size: 20px; }
+            .inv-total-row .text-right { color: #F36C21; font-size: 20px; }
 
             /* Words Section */
             .inv-words { 
@@ -857,18 +824,18 @@
 
             /* Invoice Footer (Fixed) */
             .inv-footer-note {
-                position: fixed,
-                bottom: 0,
-                left: 0,
-                width: 100%,
-                margin-top: 0,
-                text-align: center,
-                font-size: 10px,
-                color: #999,
-                border-top: 1px solid #eee,
-                padding: 10px 0,
-                background: #fff,
-                z-index: 9999,
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                margin-top: 0;
+                text-align: center;
+                font-size: 10px;
+                color: #999;
+                border-top: 1px solid #eee;
+                padding: 10px 0;
+                background: #fff;
+                z-index: 9999;
             }
             /* Add page number using CSS counter */
             .inv-footer-note::after {
@@ -894,8 +861,6 @@
                     </div>
                     <div>
                         <h1>ArthaNex</h1>
-                        <!-- Active Profile Display -->
-                        <div class="current-profile-badge" id="headerProfileName" onclick="app.toggleModal('settingsModal')">My Business</div>
                     </div>
                 </div>
                 <a href="https://arthixa.com" target="_blank">by Arthixa</a>
@@ -999,14 +964,14 @@
                     </button>
 
                     <div class="home-credits">
-                        <h3>ArthaNex v2.2.0</h3>
+                        <h3>ArthaNex v2.1.0</h3>
                         <p>Author: Pintu Sikder</p>
                         <p>By: <a href="https://arthixa.com" target="_blank">Arthixa</a></p>
                     </div>
                 </div>
             </section>
 
-            <!-- SECTION1: CASH ENTRY -->
+            <!-- SECTION 1: CASH ENTRY -->
             <section id="entry" class="view">
                 <div class="card">
                     <div class="form-group">
@@ -1230,31 +1195,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>App Theme Color</label>
-                    <input type="color" id="primaryColorInput" class="form-control" style="height: 50px; padding:5px;" onchange="app.setPrimaryColor(this.value)">
-                    <!-- Quick Select Preset Colors -->
-                    <div style="margin-top: 10px; display: flex; gap: 10px; justify-content: flex-start;">
-                        <div onclick="app.setPrimaryColor('#F67B34')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #F67B34; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Default Orange"></div>
-                        <div onclick="app.setPrimaryColor('#F00000')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #F00000; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Deep Orange"></div>
-                        <div onclick="app.setPrimaryColor('#007bff')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #007bff; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Blue"></div>
-                        <div onclick="app.setPrimaryColor('#28a745')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #28a745; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Green"></div>
-                        <div onclick="app.setPrimaryColor('#6f42c1')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #6f42c1; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Purple"></div>
-                        <div onclick="app.setPrimaryColor('#e83e8c')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #e83e8c; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Pink"></div>
-                    </div>
-                </div>
-
-                <!-- PROFILE MANAGEMENT SECTION -->
-                <div class="card" style="margin-bottom: 1rem; border: 1px dashed var(--primary); background: rgba(243, 108, 33, 0.05);">
-                    <label style="font-weight: 700; color: var(--primary); margin-bottom: 10px;">Manage Business Profiles</label>
-                    <div class="form-group" style="margin-bottom: 5px;">
-                        <input type="text" id="newProfileName" class="form-control" placeholder="New Shop/Business Name">
-                        <button class="btn btn-primary btn-sm" style="margin-top:5px;" onclick="app.createProfile()">Create New Profile</button>
-                    </div>
-                    <ul id="profileListContainer" class="profile-list"></ul>
-                </div>
-                <!-- END PROFILE SECTION -->
-
-                <div class="form-group">
                     <label>Country & Currency</label>
                     <div class="custom-select-wrapper">
                         <div class="custom-select" id="settingsCountryDropdown">
@@ -1283,7 +1223,7 @@
                 <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border);">
                 <div class="credits-container">
                     <h3>ArthaNex</h3>
-                    <p>Version 2.2.0</p>
+                    <p>Version 2.1.0</p>
                     <p>Author: Pintu Sikder</p>
                     <p>By: <a href="https://arthixa.com" target="_blank" class="By-link">Arthixa</a></p>
                 </div>
@@ -1364,11 +1304,8 @@
         const app = {
             state: {
                 currentTheme: 'light',
-                primaryColor: '#F67B34', // Updated Default Color
-                autoDeleteEnabled: false,
-                currentTags: [],
-                profiles: [{ id: 1, name: "My Business" }], // Default Profile
-                currentProfileId: 1, // Default ID
+                autoDeleteEnabled: true, 
+                currentTags: [], 
                 config: [
                     { name: "United States", currency: "USD", symbol: "$", flag: "🇺🇸", denominations: [1, 2, 5, 10, 20, 50, 100] },
                     { name: "India", currency: "INR", symbol: "₹", flag: "🇮🇳", denominations: [1, 2, 5, 10, 20, 50, 100, 200, 500] }, 
@@ -1433,12 +1370,10 @@
 
             init: function() {
                 this.loadSettings();
-                this.loadProfiles();
                 this.setupDropdown();
                 this.setupSettingsDropdown();
                 this.loadRecords();
                 this.cleanupOldRecords();
-                this.migrateRecordsToProfile(); // Migrate old data
                 
                 // RESTORE LAST SELECTED COUNTRY
                 const savedCountryName = localStorage.getItem('arthaNex_lastCountry');
@@ -1450,8 +1385,6 @@
                 }
 
                 this.updateDashboard();
-                this.updateHeaderProfileDisplay();
-                this.renderProfileList();
                 
                 const now = new Date();
                 document.getElementById('entryDate').valueAsDate = now;
@@ -1471,135 +1404,6 @@
                 });
 
                 this.switchTab('home');
-            },
-
-            // PROFILE FUNCTIONS
-            loadProfiles: function() {
-                const savedProfiles = localStorage.getItem('arthaNex_profiles');
-                if(savedProfiles) {
-                    this.state.profiles = JSON.parse(savedProfiles);
-                }
-                const savedProfileId = localStorage.getItem('arthaNex_currentProfileId');
-                if(savedProfileId) {
-                    this.state.currentProfileId = parseInt(savedProfileId);
-                }
-            },
-            saveProfiles: function() {
-                localStorage.setItem('arthaNex_profiles', JSON.stringify(this.state.profiles));
-                localStorage.setItem('arthaNex_currentProfileId', this.state.currentProfileId);
-                this.renderProfileList();
-                this.updateHeaderProfileDisplay();
-            },
-            createProfile: function() {
-                const input = document.getElementById('newProfileName');
-                const name = input.value.trim();
-                if(!name) {
-                    this.showToast("Please enter a profile name.");
-                    return;
-                }
-                const newId = Date.now();
-                this.state.profiles.push({ id: newId, name: name });
-                this.state.currentProfileId = newId; // Switch to new profile immediately
-                this.saveProfiles();
-                input.value = "";
-                this.showToast("New Profile Created!");
-                this.updateDashboard(); // Update dashboard to show empty state
-                this.renderHistory();
-                this.renderOutstanding('all');
-            },
-            switchProfile: function(id) {
-                this.state.currentProfileId = id;
-                this.saveProfiles();
-                this.updateDashboard();
-                this.renderHistory();
-                this.renderOutstanding('all');
-                // Clear ledger view if open to avoid confusion
-                this.clearLedger();
-                this.showToast("Switched to " + this.state.profiles.find(p => p.id === id).name);
-            },
-            deleteProfile: function(id, event) {
-                event.stopPropagation();
-                if(this.state.profiles.length <= 1) {
-                    this.showToast("You must have at least one profile.");
-                    return;
-                }
-                if(confirm("Are you sure? All records in this profile will be deleted.")) {
-                    // Delete records
-                    this.state.records = this.state.records.filter(r => r.profileId !== id);
-                    localStorage.setItem('arthaNex_records', JSON.stringify(this.state.records));
-                    
-                    // Delete profile
-                    this.state.profiles = this.state.profiles.filter(p => p.id !== id);
-                    
-                    // If deleted profile was active, switch to first available
-                    if(this.state.currentProfileId === id) {
-                        this.state.currentProfileId = this.state.profiles[0].id;
-                    }
-                    
-                    this.saveProfiles();
-                    this.updateDashboard();
-                    this.renderHistory();
-                    this.renderOutstanding('all');
-                    this.showToast("Profile deleted.");
-                }
-            },
-            renderProfileList: function() {
-                const container = document.getElementById('profileListContainer');
-                container.innerHTML = '';
-                this.state.profiles.forEach(p => {
-                    const li = document.createElement('li');
-                    li.className = `profile-item ${p.id === this.state.currentProfileId ? 'active' : ''}`;
-                    
-                    let deleteBtn = '';
-                    if(this.state.profiles.length > 1) {
-                        deleteBtn = `<button class="profile-btn btn-delete" onclick="app.deleteProfile(${p.id}, event)">Delete</button>`;
-                    }
-
-                    li.innerHTML = `
-                        <span class="profile-name">${p.name}</span>
-                        <div class="profile-actions">
-                            ${p.id !== this.state.currentProfileId ? `<button class="profile-btn btn-switch" onclick="app.switchProfile(${p.id})">Switch</button>` : '<span class="profile-btn" style="background:#ccc; color:#555; cursor:default;">Active</span>'}
-                            ${deleteBtn}
-                        </div>
-                    `;
-                    container.appendChild(li);
-                });
-            },
-            updateHeaderProfileDisplay: function() {
-                const profile = this.state.profiles.find(p => p.id === this.state.currentProfileId);
-                if(profile) {
-                    document.getElementById('headerProfileName').textContent = profile.name;
-                }
-            },
-            // Helper to get records for current profile
-            getProfileRecords: function() {
-                return this.state.records.filter(r => r.profileId === this.state.currentProfileId);
-            },
-            migrateRecordsToProfile: function() {
-                // Check if any record lacks profileId (old data)
-                const needsMigration = this.state.records.some(r => !r.profileId);
-                if(needsMigration) {
-                    this.state.records.forEach(r => {
-                        if(!r.profileId) {
-                            r.profileId = this.state.currentProfileId; // Assign to current active profile
-                        }
-                    });
-                    localStorage.setItem('arthaNex_records', JSON.stringify(this.state.records));
-                }
-            },
-            // END PROFILE FUNCTIONS
-
-            // NEW FUNCTION: SET PRIMARY COLOR
-            setPrimaryColor: function(color) {
-                this.state.primaryColor = color;
-                document.documentElement.style.setProperty('--primary', color);
-                document.documentElement.style.setProperty('--accent', color);
-                document.documentElement.style.setProperty('--primary-hover', color);
-                document.querySelector('meta[name="theme-color"]').setAttribute("content", color);
-                localStorage.setItem('arthaNex_primaryColor', color);
-                
-                // Update UI elements that might use hardcoded colors
-                document.getElementById('primaryColorInput').value = color;
             },
 
             // TAG FUNCTIONS
@@ -1659,17 +1463,16 @@
             },
 
             updateDashboard: function() {
-                const profileRecords = this.getProfileRecords();
-                const totalIncome = profileRecords.filter(r => r.type === 'income').reduce((sum, r) => sum + r.total,0);
-                const totalExpense = profileRecords.filter(r => r.type === 'expense').reduce((sum, r) => sum + r.total,0);
+                const totalIncome = this.state.records.filter(r => r.type === 'income').reduce((sum, r) => sum + r.total, 0);
+                const totalExpense = this.state.records.filter(r => r.type === 'expense').reduce((sum, r) => sum + r.total, 0);
                 const netBalance = totalIncome - totalExpense;
 
                 document.getElementById('dashIncome').textContent = totalIncome.toLocaleString();
                 document.getElementById('dashExpense').textContent = totalExpense.toLocaleString();
                 document.getElementById('dashBalance').textContent = netBalance.toLocaleString();
                 
-                const dueRec = profileRecords.filter(r => r.status === 'Due' && r.type === 'income').reduce((sum, r) => sum + r.total,0);
-                const duePay = profileRecords.filter(r => r.status === 'Due' && r.type === 'expense').reduce((sum, r) => sum + r.total,0);
+                const dueRec = this.state.records.filter(r => r.status === 'Due' && r.type === 'income').reduce((sum, r) => sum + r.total, 0);
+                const duePay = this.state.records.filter(r => r.status === 'Due' && r.type === 'expense').reduce((sum, r) => sum + r.total, 0);
                 document.getElementById('dueReceivable').textContent = dueRec.toLocaleString();
                 document.getElementById('duePayable').textContent = duePay.toLocaleString();
             },
@@ -1775,15 +1578,8 @@
                 localStorage.setItem('arthaNex_theme', theme);
             },
             loadSettings: function() {
-                // Load Theme
                 const savedTheme = localStorage.getItem('arthaNex_theme');
                 if(savedTheme) this.setTheme(savedTheme);
-
-                // Load Primary Color
-                const savedColor = localStorage.getItem('arthaNex_primaryColor');
-                if(savedColor) this.setPrimaryColor(savedColor);
-
-                // Load Auto Delete
                 const autoDelete = localStorage.getItem('arthaNex_autoDelete');
                 if (autoDelete !== null) {
                     this.state.autoDeleteEnabled = (autoDelete === 'true');
@@ -1828,7 +1624,7 @@
             },
             calculateTotal: function(denomChanged, val) {
                 if(denomChanged) this.state.denominations[denomChanged] = parseFloat(val) || 0;
-                let total =0;
+                let total = 0;
                 this.state.selectedCountry.denominations.forEach(d => {
                     const count = this.state.denominations[d];
                     total += (count * d);
@@ -1859,7 +1655,7 @@
                 }
 
                 let hasEntries = false;
-                let total =0;
+                let total = 0;
                 Object.keys(this.state.denominations).forEach(k => {
                     const count = this.state.denominations[k];
                     total += (k * count);
@@ -1896,8 +1692,7 @@
                     remarks: document.getElementById('entryRemarks').value || "",
                     denominations: {...this.state.denominations},
                     total: total,
-                    timestamp: Date.now(),
-                    profileId: this.state.currentProfileId // Tag with current profile
+                    timestamp: Date.now()
                 };
 
                 this.state.records.push(record);
@@ -1911,11 +1706,6 @@
                 if(stored) this.state.records = JSON.parse(stored);
             },
             cleanupOldRecords: function() {
-                // Only cleanup records of the current profile or all? 
-                // Safer to cleanup all, but logic requires checking profileId.
-                // Since this is "Auto-delete records older than 90 days", usually implies app-wide.
-                // But per profile scope is better. Let's stick to App-wide cleanup to keep it simple or check if user wants per-profile.
-                // Given "don't change extra things", let's keep it global.
                 if (!this.state.autoDeleteEnabled) return;
                 const now = Date.now();
                 const threeMonths = 90 * 24 * 60 * 60 * 1000;
@@ -2138,7 +1928,6 @@
                             </div>
                         </div>
                         <div class="pdf-meta">
-                            <strong>Profile:</strong> ${this.state.profiles.find(p=>p.id===this.state.currentProfileId).name}<br>
                             <strong>Date Range:</strong><br>
                             ${dateRangeStr}<br><br>
                             <strong>Generated On:</strong><br>
@@ -2200,7 +1989,6 @@
             },
 
             exportLast30Days: function() {
-                const profileRecords = this.getProfileRecords();
                 const today = new Date();
                 const thirtyDaysAgo = new Date(); 
                 thirtyDaysAgo.setDate(today.getDate() - 30);
@@ -2210,7 +1998,7 @@
                 const startStr = thirtyDaysAgo.toISOString().split('T')[0];
 
                 // Filter records by comparing strings directly
-                const filtered = profileRecords.filter(r => {
+                const filtered = this.state.records.filter(r => {
                     return r.date >= startStr && r.date <= todayStr;
                 });
 
@@ -2242,8 +2030,8 @@
                 }
 
                 // FIX: Compare strings directly (YYYY-MM-DD) to avoid timezone conversion bugs
-                const profileRecords = this.getProfileRecords();
-                const filtered = profileRecords.filter(r => {
+                // No need to create Date objects which are susceptible to local vs UTC offsets.
+                const filtered = this.state.records.filter(r => {
                     return r.date >= startStr && r.date <= endStr;
                 });
 
@@ -2266,8 +2054,7 @@
                 const empty = document.getElementById('outstandingEmpty');
                 list.innerHTML = '';
                 
-                const profileRecords = this.getProfileRecords();
-                let dues = profileRecords.filter(r => r.status === 'Due');
+                let dues = this.state.records.filter(r => r.status === 'Due');
                 if (filterType === 'receivable') { dues = dues.filter(r => r.type === 'income'); } 
                 else if (filterType === 'payable') { dues = dues.filter(r => r.type === 'expense'); }
                 
@@ -2317,8 +2104,7 @@
                 container.innerHTML = '';
                 if(val.length < 1) return;
                 
-                const profileRecords = this.getProfileRecords();
-                const names = [...new Set(profileRecords.map(r => r.name))].filter(n => n.toLowerCase().includes(val.toLowerCase()));
+                const names = [...new Set(this.state.records.map(r => r.name))].filter(n => n.toLowerCase().includes(val.toLowerCase()));
                 names.forEach(name => {
                     const tag = document.createElement('span');
                     tag.textContent = name;
@@ -2333,8 +2119,7 @@
             },
             
             loadLedger: function(name) {
-                const profileRecords = this.getProfileRecords();
-                const custRecords = profileRecords.filter(r => r.name === name);
+                const custRecords = this.state.records.filter(r => r.name === name);
                 if(custRecords.length === 0) return;
 
                 document.getElementById('ledgerDetails').style.display = 'block';
@@ -2409,9 +2194,9 @@
                 const emptyState = document.getElementById('emptyState');
                 const { name, date, amount, mode } = this.state.filters;
                 list.innerHTML = '';
-                const profileRecords = this.getProfileRecords();
+                let data = [...this.state.records];
                 
-                const filtered = profileRecords.filter(r => {
+                const filtered = data.filter(r => {
                     if (mode === 'name') return name ? r.name.toLowerCase().includes(name.toLowerCase()) : true;
                     else if (mode === 'date') return date ? r.date === date : true;
                     else if (mode === 'amount') return amount ? r.total.toString().startsWith(amount.toString()) : true;
