@@ -603,6 +603,18 @@
                 font-family: 'Helvetica', sans-serif;
             }
 
+            /* PAGE SETTINGS */
+            @page {
+                size: A4;
+                margin-bottom: 50px; /* Space for footer */
+                @bottom-center {
+                    content: "Page " counter(page); /* Attempt to show page number */
+                    font-family: 'Helvetica', sans-serif;
+                    font-size: 10px;
+                    color: #555;
+                }
+            }
+
             /* --- REPORT STYLES --- */
             .pdf-header {
                 display: flex;
@@ -611,6 +623,7 @@
                 margin-bottom: 20px;
                 border-bottom: 2px solid #F36C21;
                 padding-bottom: 15px;
+                padding-bottom: 40px; /* Extra padding at bottom for content not to hide behind fixed footer */
             }
             .pdf-logo-area { display: flex; align-items: center; gap: 10px; }
             .pdf-logo { width: 50px; height: 50px; object-fit: contain; }
@@ -650,6 +663,7 @@
                 padding: 15px;
                 border: 2px solid #333;
                 background-color: #fafafa;
+                margin-bottom: 60px; /* Space for fixed footer */
             }
             .pdf-summary-row {
                 display: flex;
@@ -663,12 +677,19 @@
             .pdf-summary-val { font-family: 'Courier New', monospace; font-weight: 600; }
 
             .pdf-footer {
-                margin-top: 40px;
+                /* MODIFIED: Fixed footer to appear on every page */
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
                 text-align: center;
                 font-size: 10px;
                 color: #777;
-                border-top:1px solid #ddd;
+                border-top: 1px solid #ddd;
                 padding-top: 10px;
+                padding-bottom: 10px;
+                background: #fff;
+                z-index: 9999;
             }
 
             /* --- INVOICE STYLES --- */
@@ -677,6 +698,7 @@
                 margin: 0 auto;
                 padding: 40px;
                 border: 1px solid #eee;
+                padding-bottom: 60px; /* Space for footer */
             }
             .inv-header {
                 display: flex;
@@ -715,7 +737,22 @@
             .inv-total-row td { background-color: #f4f4f4; font-weight: 700; font-size: 16px; }
 
             .inv-words { margin: 20px 0; padding: 15px; background: #fdfdfd; border: 1px solid #ddd; font-style: italic; color: #555; }
-            .inv-footer-note { margin-top: 50px; padding-top: 20px; border-top: 1px dashed #ccc; font-size: 12px; color: #777; }
+            .inv-footer-note {
+                /* MODIFIED: Fixed footer for invoice as well */
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                margin-top: 0;
+                text-align: center;
+                font-size: 12px;
+                color: #777;
+                border-top: 1px dashed #ccc;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background: #fff;
+                z-index: 9999;
+            }
             .inv-sign { margin-top: 40px; display: flex; justify-content: flex-end; }
             .inv-sign-line { border-top: 1px solid #333; width: 200px; text-align: center; font-size: 12px; padding-top: 5px; }
 
