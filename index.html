@@ -685,7 +685,7 @@
                 width: 100%;
                 height: 30px; /* Ensure height for absolute positioning children */
                 display: flex;
-                justify-content: center; /* Center the URL text */
+                justify-content: center; /* Center URL text */
                 align-items: center;
                 font-size: 9px; 
                 color: #777;
@@ -707,65 +707,128 @@
                 right: 10px;
             }
 
-            /* --- INVOICE STYLES --- */
+            /* --- PROFESSIONAL INVOICE STYLES --- */
             .invoice-layout {
                 max-width: 800px;
                 margin: 0 auto;
                 padding: 40px;
-                border: 1px solid #eee;
-                padding-bottom: 60px;
+                font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+                color: #333;
+                border: none; /* Clean print look */
             }
+
+            /* Professional Header */
             .inv-header {
                 display: flex;
                 justify-content: space-between;
-                align-items: flex-end;
-                border-bottom: 2px solid #333;
+                align-items: flex-start;
+                border-bottom: 3px solid #F36C21; /* Brand Accent Line */
                 padding-bottom: 20px;
                 margin-bottom: 30px;
             }
-            .inv-title { font-size: 32px; font-weight: 800; color: #333; text-transform: uppercase; }
-            .inv-logo { width: 60px; }
-
-            .inv-bill-to { margin-bottom: 30px; }
-            .inv-bill-label { font-size: 12px; color: #777; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
-            .inv-cust-name { font-size: 20px; font-weight: 700; color: #333; }
-            .inv-cust-details { font-size: 14px; color: #555; margin-top: 5px; }
-
+            .inv-brand-info h1 { font-size: 28px; margin: 0 0 5px 0; color: #F36C21; font-weight: 800; letter-spacing: -0.5px; }
+            .inv-brand-info p { margin: 0; font-size: 12px; color: #666; }
+            
+            .inv-title-section { text-align: right; }
+            .inv-title { font-size: 42px; font-weight: 800; color: #333; text-transform: uppercase; line-height: 1; margin: 0 0 5px 0; }
             .inv-meta-grid {
+                margin-top: 15px;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                grid-template-columns: auto 1fr;
+                gap: 5px 15px;
+                font-size: 13px;
+                align-items: center;
+            }
+            .inv-meta-label { font-weight: 600; color: #666; text-align: right; }
+            .inv-meta-value { font-weight: 600; color: #333; }
+            
+            /* Bill To Box */
+            .inv-bill-to {
                 margin-bottom: 30px;
-                background: #f9f9f9;
-                padding: 15px;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 4px;
+                border-left: 4px solid #F36C21;
+            }
+            .inv-bill-label { font-size: 11px; color: #888; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+            .inv-cust-name { font-size: 20px; font-weight: 700; color: #333; margin-bottom: 5px; }
+            .inv-cust-details { font-size: 14px; color: #555; line-height: 1.4; }
+
+            /* Professional Table */
+            .inv-table { 
+                width: 100%; 
+                border-collapse: collapse; 
+                margin-bottom: 20px;
+            }
+            .inv-table th { 
+                background-color: #333; /* Dark Header */
+                color: #fff; 
+                padding: 12px 15px; 
+                text-align: left; 
+                font-size: 12px; 
+                font-weight: 600; 
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            .inv-table td { 
+                padding: 12px 15px; 
+                border-bottom: 1px solid #eee; 
+                font-size: 14px; 
+                color: #444;
+                vertical-align: middle;
+            }
+            /* Zebra Striping */
+            .inv-table tr:nth-child(even) { background-color: #fcfcfc; } 
+            .inv-table tr:hover { background-color: #f1f1f1; } /* Interactive feel if viewed on screen */
+            
+            .inv-table .text-right { text-align: right; font-weight: 600; font-size: 15px; }
+
+            .inv-total-row td { 
+                background-color: #f4f4f4 !important; 
+                font-weight: 700; 
+                font-size: 16px; 
+                color: #000;
+                border-top: 2px solid #ddd;
+            }
+            .inv-total-row .text-right { color: #F36C21; font-size: 20px; }
+
+            /* Words Section */
+            .inv-words { 
+                margin: 30px 0; 
+                padding: 20px; 
+                background: #fff; 
+                border: 1px dashed #ccc; 
+                font-style: italic; 
+                color: #666; 
+                font-size: 14px;
                 border-radius: 4px;
             }
-            .inv-meta-item label { display: block; font-size: 11px; color: #777; font-weight: 600; margin-bottom: 2px; }
-            .inv-meta-item span { font-size: 14px; font-weight: 600; color: #333; }
 
-            .inv-table { width: 100%; border-collapse: collapse; }
-            .inv-table th { 
-                background-color: #333; color: #fff; padding: 12px 10px; text-align: left; font-size: 12px; font-weight: 600; 
+            /* Signature Area */
+            .inv-sign { margin-top: 60px; display: flex; justify-content: flex-end; }
+            .inv-sign-line { 
+                border-top: 2px solid #333; 
+                width: 220px; 
+                text-align: center; 
+                font-size: 13px; 
+                padding-top: 10px; 
+                color: #666;
+                text-transform: uppercase;
+                font-weight: 600;
             }
-            .inv-table td { padding: 12px 10px; border-bottom: 1px solid #eee; font-size: 14px; }
-            .inv-table tr:last-child td { border-bottom: none; }
-            .inv-total-row td { background-color: #f4f4f4; font-weight: 700; font-size: 16px; }
 
-            .inv-words { margin: 20px 0; padding: 15px; background: #fdfdfd; border: 1px solid #ddd; font-style: italic; color: #555; }
-            
+            /* Invoice Footer (Fixed) */
             .inv-footer-note {
-                /* FIXED FOOTER FOR INVOICE */
                 position: fixed;
                 bottom: 0;
                 left: 0;
                 width: 100%;
                 margin-top: 0;
                 text-align: center;
-                font-size: 12px;
-                color: #777;
-                border-top: 1px dashed #ccc;
-                padding-top: 10px;
-                padding-bottom: 10px;
+                font-size: 10px;
+                color: #999;
+                border-top: 1px solid #eee;
+                padding: 10px 0;
                 background: #fff;
                 z-index: 9999;
             }
@@ -773,9 +836,6 @@
             .inv-footer-note::after {
                 content: " - Page " counter(page);
             }
-
-            .inv-sign { margin-top: 40px; display: flex; justify-content: flex-end; }
-            .inv-sign-line { border-top: 1px solid #333; width: 200px; text-align: center; font-size: 12px; padding-top: 5px; }
 
             /* Print Helper Classes */
             .text-right { text-align: right; }
@@ -1671,7 +1731,7 @@
             },
 
             /* =========================================
-               INVOICE DOWNLOAD LOGIC
+               PROFESSIONAL INVOICE DOWNLOAD LOGIC
                ========================================= */
             downloadInvoice: function(id) {
                 const r = this.state.records.find(rec => rec.id === id);
@@ -1683,44 +1743,43 @@
                 const itemsDesc = (r.tags && r.tags.length > 0) ? r.tags.join(', ') : (r.remarks || "Payment Received");
                 const statusText = r.status === 'Paid' ? "PAID" : "DUE";
                 const statusColor = r.status === 'Paid' ? "#2e7d32" : "#c62828";
+                const invoiceNo = "#INV-" + r.id.toString().slice(-6); // Shorter Invoice No
 
                 const invoiceHTML = `
                     <div class="invoice-layout">
-                        <!-- Header -->
+                        <!-- Professional Header -->
                         <div class="inv-header">
-                            <div>
-                                <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" class="inv-logo" alt="ArthaNex Logo">
+                            <div class="inv-brand-info">
+                                <div style="display:flex; align-items:center; gap:15px; margin-bottom:10px;">
+                                    <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" style="width:50px; height:50px;" alt="Logo">
+                                    <h1>ArthaNex</h1>
+                                </div>
+                                <p>Professional Khata Book & Ledger</p>
+                                <p>Generated by https://arthixa.com</p>
                             </div>
-                            <div class="text-right">
-                                <h1 class="inv-title">INVOICE</h1>
-                                <div style="font-size: 14px; color: #555;">#INV-${r.id}</div>
+
+                            <div class="inv-title-section">
+                                <div class="inv-title">Invoice</div>
+                                <div class="inv-meta-grid">
+                                    <div class="inv-meta-label">Invoice No:</div>
+                                    <div class="inv-meta-value">${invoiceNo}</div>
+                                    
+                                    <div class="inv-meta-label">Date:</div>
+                                    <div class="inv-meta-value">${this.formatDisplayDate(r.date)}</div>
+                                    
+                                    <div class="inv-meta-label">Status:</div>
+                                    <div class="inv-meta-value" style="color:${statusColor}">${statusText}</div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Bill To -->
+                        <!-- Bill To Section -->
                         <div class="inv-bill-to">
                             <div class="inv-bill-label">Bill To</div>
                             <div class="inv-cust-name">${r.name}</div>
-                            <div class="inv-cust-details">${r.mobile ? 'Mobile: ' + r.mobile : ''}</div>
-                        </div>
-
-                        <!-- Meta Info -->
-                        <div class="inv-meta-grid">
-                            <div class="inv-meta-item">
-                                <label>Invoice Date</label>
-                                <span>${this.formatDisplayDate(r.date)}</span>
-                            </div>
-                            <div class="inv-meta-item">
-                                <label>Time</label>
-                                <span>${r.time}</span>
-                            </div>
-                            <div class="inv-meta-item">
-                                <label>Payment Status</label>
-                                <span style="color: ${statusColor}; border: 1px solid ${statusColor}; padding: 2px 6px; border-radius: 4px; font-size: 12px;">${statusText}</span>
-                            </div>
-                            <div class="inv-meta-item">
-                                <label>Payment Mode</label>
-                                <span>Cash</span>
+                            <div class="inv-cust-details">
+                                ${r.mobile ? 'Mobile: ' + r.mobile + '<br>' : ''}
+                                ${r.remarks ? 'Note: ' + r.remarks : ''}
                             </div>
                         </div>
 
@@ -1730,18 +1789,18 @@
                                 <tr>
                                     <th style="width: 50px;">#</th>
                                     <th>Description</th>
-                                    <th style="width: 100px; text-align: right;">Amount</th>
+                                    <th style="width: 120px; text-align: right;">Amount</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>${itemsDesc}</td>
+                                    <td><strong>${itemsDesc}</strong><br><span style="font-size:11px; color:#888;">Transaction ID: ${r.id}</span></td>
                                     <td class="text-right">${symbol} ${r.total.toLocaleString()}</td>
                                 </tr>
                                 <tr class="inv-total-row">
                                     <td colspan="2" class="text-right">Total</td>
-                                    <td class="text-right" style="font-size: 18px;">${symbol} ${r.total.toLocaleString()}</td>
+                                    <td class="text-right">${symbol} ${r.total.toLocaleString()}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1759,7 +1818,7 @@
                         <!-- Footer -->
                         <div class="inv-footer-note">
                             Thank you for your business.<br>
-                            Generated by ArthaNex - https://arthixa.com
+                            Generated by ArthaNex
                         </div>
                     </div>
                 `;
