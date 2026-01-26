@@ -591,16 +591,26 @@
         @media print {
             body * { visibility: hidden; }
             #print-area, #print-area * { visibility: visible; }
+            
             #print-area { 
-                display: block; 
-                position: absolute; 
-                left: 0; 
-                top: 0; 
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh; /* Ensures footer pushes to bottom */
                 width: 100%; 
                 background: white; 
                 color: #000; 
                 font-size: 12px; 
                 font-family: 'Helvetica', sans-serif;
+            }
+
+            /* --- REDUCED MARGINS --- */
+            @page {
+                margin: 10mm; /* Reduced side and top margins */
+                @bottom-right {
+                    content: "Page " counter(page) " of " counter(pages);
+                    font-size: 10px;
+                    color: #555;
+                }
             }
 
             /* --- REPORT STYLES --- */
@@ -662,8 +672,9 @@
             .pdf-summary-label { font-weight: 600; }
             .pdf-summary-val { font-family: 'Courier New', monospace; font-weight: 600; }
 
+            /* --- FOOTER AT BOTTOM --- */
             .pdf-footer {
-                margin-top: 40px;
+                margin-top: auto; /* Pushes footer to the bottom of the container */
                 text-align: center;
                 font-size: 10px;
                 color: #777;
