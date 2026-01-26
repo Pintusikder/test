@@ -591,6 +591,12 @@
         @media print {
             body * { visibility: hidden; }
             #print-area, #print-area * { visibility: visible; }
+            
+            /* Enable Page Counter */
+            body { 
+                counter-increment: page; 
+            }
+            
             #print-area { 
                 display: block; 
                 position: absolute; 
@@ -601,18 +607,14 @@
                 color: #000; 
                 font-size: 12px; 
                 font-family: 'Helvetica', sans-serif;
+                /* Fix: Add padding-bottom so content doesn't go under the fixed footer */
+                padding-bottom: 60px; 
             }
 
             /* PAGE SETTINGS */
             @page {
                 size: A4;
-                margin-bottom: 50px; /* Space for footer */
-                @bottom-center {
-                    content: "Page " counter(page); /* Attempt to show page number */
-                    font-family: 'Helvetica', sans-serif;
-                    font-size: 10px;
-                    color: #555;
-                }
+                margin: 10mm; /* Reduced margins as requested */
             }
 
             /* --- REPORT STYLES --- */
@@ -623,7 +625,6 @@
                 margin-bottom: 20px;
                 border-bottom: 2px solid #F36C21;
                 padding-bottom: 15px;
-                padding-bottom: 40px; /* Extra padding at bottom for content not to hide behind fixed footer */
             }
             .pdf-logo-area { display: flex; align-items: center; gap: 10px; }
             .pdf-logo { width: 50px; height: 50px; object-fit: contain; }
@@ -663,7 +664,6 @@
                 padding: 15px;
                 border: 2px solid #333;
                 background-color: #fafafa;
-                margin-bottom: 60px; /* Space for fixed footer */
             }
             .pdf-summary-row {
                 display: flex;
@@ -676,8 +676,8 @@
             .pdf-summary-label { font-weight: 600; }
             .pdf-summary-val { font-family: 'Courier New', monospace; font-weight: 600; }
 
+            /* FIXED FOOTER STYLES */
             .pdf-footer {
-                /* MODIFIED: Fixed footer to appear on every page */
                 position: fixed;
                 bottom: 0;
                 left: 0;
@@ -691,6 +691,10 @@
                 background: #fff;
                 z-index: 9999;
             }
+            /* Add page number using CSS counter */
+            .pdf-footer::after {
+                content: " - Page " counter(page);
+            }
 
             /* --- INVOICE STYLES --- */
             .invoice-layout {
@@ -698,7 +702,6 @@
                 margin: 0 auto;
                 padding: 40px;
                 border: 1px solid #eee;
-                padding-bottom: 60px; /* Space for footer */
             }
             .inv-header {
                 display: flex;
@@ -737,8 +740,9 @@
             .inv-total-row td { background-color: #f4f4f4; font-weight: 700; font-size: 16px; }
 
             .inv-words { margin: 20px 0; padding: 15px; background: #fdfdfd; border: 1px solid #ddd; font-style: italic; color: #555; }
+            
             .inv-footer-note {
-                /* MODIFIED: Fixed footer for invoice as well */
+                /* FIXED FOOTER FOR INVOICE */
                 position: fixed;
                 bottom: 0;
                 left: 0;
@@ -753,6 +757,11 @@
                 background: #fff;
                 z-index: 9999;
             }
+            /* Add page number using CSS counter */
+            .inv-footer-note::after {
+                content: " - Page " counter(page);
+            }
+
             .inv-sign { margin-top: 40px; display: flex; justify-content: flex-end; }
             .inv-sign-line { border-top: 1px solid #333; width: 200px; text-align: center; font-size: 12px; padding-top: 5px; }
 
