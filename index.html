@@ -819,18 +819,15 @@
 
             /* Invoice Footer (Fixed) */
             .inv-footer-note {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                margin-top: 0;
+                /* Position changed to relative to prevent overlap with signature */
+                position: relative; 
+                margin-top: 40px; /* Added space above footer */
                 text-align: center;
                 font-size: 10px;
                 color: #999;
                 border-top: 1px solid #eee;
                 padding: 10px 0;
                 background: #fff;
-                z-index: 9999;
             }
             /* Add page number using CSS counter */
             .inv-footer-note::after {
