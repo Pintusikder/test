@@ -10,21 +10,21 @@
     
     <title>ArthaNex - Offline Khata Book</title>
     <meta name="description" content="ArthaNex is best free offline Khata book and daily cash collection app. Manage small business ledger, party dues, and expenses without internet. Simple business calculator.">
-    <meta name="theme-color" content="#F67B34">
+    <meta name="theme-color" content="#F36C21">
     
     <!-- Manifest Link -->
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472">
+    <link rel="apple-touch-icon" href="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 ">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com ">
+    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300 ;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #F67B34;       
-            --primary-hover: #D65612; /* Will be updated dynamically via JS based on primary */
-            --accent: #FF8A3D;        /* Will be updated dynamically via JS based on primary */
+            --primary: #F36C21;       
+            --primary-hover: #D65612;
+            --accent: #FF8A3D;        
             --secondary: #1C1C1C;     
             --neutral: #6B6E63;       
             --light-bg: #F5F5F5;      
@@ -218,9 +218,6 @@
         .view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --------------------------------------------------
-           HOME PAGE
-           -------------------------------------------------- */
         .home-container {
             display: flex;
             flex-direction: column;
@@ -347,9 +344,6 @@
             font-weight: 600;
         }
 
-        /* --------------------------------------------------
-           OTHER STYLES
-           -------------------------------------------------- */
         .card { background: var(--card-bg); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
         .form-group { margin-bottom: 1rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--neutral); font-weight: 500; word-break: break-word; }
@@ -402,7 +396,6 @@
         .btn-success { background-color: #2e7d32; color: #fff; }
         .btn-outline { background-color: transparent; border: 1px solid var(--neutral); color: var(--neutral); }
 
-        /* TAGS STYLES */
         .tags-input-group { display: flex; gap: 8px; }
         .tags-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .tag-chip {
@@ -480,13 +473,12 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
         
-        /* PWA INSTALL BANNER */
         #pwa-install-banner {
             display: none;
             position: fixed;
             bottom: 0;
-            left: 0,
-            right: 0,
+            left: 0;
+            right: 0;
             background-color: var(--primary);
             color: #fff;
             padding: 1rem;
@@ -583,16 +575,12 @@
             font-weight: 600;
         }
 
-        /* =========================================
-           PROFESSIONAL PDF & INVOICE STYLES
-           ========================================= */
         #print-area { display: none; }
         
         @media print {
             body * { visibility: hidden; }
             #print-area, #print-area * { visibility: visible; }
             
-            /* Enable Page Counter */
             body { 
                 counter-increment: page; 
             }
@@ -607,17 +595,14 @@
                 color: #000; 
                 font-size: 12px; 
                 font-family: 'Helvetica', sans-serif;
-                /* Reducing padding to maximize content space */
                 padding-bottom: 30px; 
             }
 
-            /* PAGE SETTINGS */
             @page {
                 size: A4;
-                margin: 10mm 5mm 10mm 5mm; /* Top/Bottom 10mm, Left/Right 5mm to fit more data */
+                margin: 10mm 5mm 10mm 5mm;
             }
 
-            /* --- REPORT STYLES --- */
             .pdf-header {
                 display: flex;
                 align-items: flex-start;
@@ -664,7 +649,7 @@
                 padding: 15px;
                 border: 2px solid #333;
                 background-color: #fafafa;
-                margin-bottom: 35px; /* Reduced margin to fit new footer */
+                margin-bottom: 35px;
             }
             .pdf-summary-row {
                 display: flex;
@@ -677,15 +662,14 @@
             .pdf-summary-label { font-weight: 600; }
             .pdf-summary-val { font-family: 'Courier New', monospace; font-weight: 600; }
 
-            /* UPDATED FOOTER: Left-Center-Right */
             .pdf-footer {
                 position: fixed;
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 30px; /* Ensure height for absolute positioning children */
+                height: 30px;
                 display: flex;
-                justify-content: center; /* Center URL text */
+                justify-content: center;
                 align-items: center;
                 font-size: 9px; 
                 color: #777;
@@ -694,35 +678,34 @@
                 z-index: 9999;
                 line-height: 1.2;
             }
-            /* Left Element */
             .pdf-footer::before {
                 content: "Generated by ArthaNex";
                 position: absolute;
                 left: 10px;
             }
-            /* Right Element */
             .pdf-footer::after {
                 content: "Page " counter(page);
                 position: absolute;
                 right: 10px;
             }
 
-            /* --- PROFESSIONAL INVOICE STYLES --- */
             .invoice-layout {
                 max-width: 800px;
                 margin: 0 auto;
                 padding: 40px;
                 font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
                 color: #333;
-                border: none; /* Clean print look */
+                border: none;
+                padding-bottom: 60px;
+                position: relative;
+                min-height: 100vh;
             }
 
-            /* Professional Header */
             .inv-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
-                border-bottom: 3px solid #F36C21; /* Brand Accent Line */
+                border-bottom: 3px solid #F36C21;
                 padding-bottom: 20px;
                 margin-bottom: 30px;
             }
@@ -742,7 +725,6 @@
             .inv-meta-label { font-weight: 600; color: #666; text-align: right; }
             .inv-meta-value { font-weight: 600; color: #333; }
             
-            /* Bill To Box */
             .inv-bill-to {
                 margin-bottom: 30px;
                 background-color: #f9f9f9;
@@ -754,14 +736,13 @@
             .inv-cust-name { font-size: 20px; font-weight: 700; color: #333; margin-bottom: 5px; }
             .inv-cust-details { font-size: 14px; color: #555; line-height: 1.4; }
 
-            /* Professional Table */
             .inv-table { 
                 width: 100%; 
                 border-collapse: collapse; 
                 margin-bottom: 20px;
             }
             .inv-table th { 
-                background-color: #333; /* Dark Header */
+                background-color: #333;
                 color: #fff; 
                 padding: 12px 15px; 
                 text-align: left; 
@@ -777,9 +758,8 @@
                 color: #444;
                 vertical-align: middle;
             }
-            /* Zebra Striping */
             .inv-table tr:nth-child(even) { background-color: #fcfcfc; } 
-            .inv-table tr:hover { background-color: #f1f1f1; } /* Interactive feel if viewed on screen */
+            .inv-table tr:hover { background-color: #f1f1f1; }
             
             .inv-table .text-right { text-align: right; font-weight: 600; font-size: 15px; }
 
@@ -792,7 +772,6 @@
             }
             .inv-total-row .text-right { color: #F36C21; font-size: 20px; }
 
-            /* Words Section */
             .inv-words { 
                 margin: 30px 0; 
                 padding: 20px; 
@@ -804,7 +783,6 @@
                 border-radius: 4px;
             }
 
-            /* Signature Area */
             .inv-sign { margin-top: 60px; display: flex; justify-content: flex-end; }
             .inv-sign-line { 
                 border-top: 2px solid #333; 
@@ -817,11 +795,10 @@
                 font-weight: 600;
             }
 
-            /* Invoice Footer (Fixed) */
             .inv-footer-note {
                 position: fixed;
                 bottom: 0;
-                left: 0,
+                left: 0;
                 width: 100%;
                 margin-top: 0;
                 text-align: center;
@@ -831,19 +808,20 @@
                 padding: 10px 0;
                 background: #fff;
                 z-index: 9999;
+                page-break-inside: avoid;
+                page-break-before: avoid;
             }
-            /* Add page number using CSS counter */
             .inv-footer-note::after {
                 content: " - Page " counter(page);
             }
 
-            /* Print Helper Classes */
             .text-right { text-align: right; }
             .text-center { text-align: center; }
             .font-bold { font-weight: 700; }
             .no-data { text-align: center; padding: 40px; font-size: 14px; font-style: italic; color: #777; }
         }
     </style>
+<base target="_blank">
 </head>
 <body data-theme="light">
 
@@ -852,13 +830,13 @@
             <div class="brand">
                 <div class="brand-top">
                     <div class="brand-icon">
-                        <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" alt="ArthaNex Logo">
+                        <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 " alt="ArthaNex Logo">
                     </div>
                     <div>
                         <h1>ArthaNex</h1>
                     </div>
                 </div>
-                <a href="https://arthixa.com" target="_blank">by Arthixa</a>
+                <a href="https://arthixa.com " target="_blank">by Arthixa</a>
             </div>
             <div class="header-actions">
                 <button id="settingsBtn" aria-label="Settings">⚙</button>
@@ -875,7 +853,7 @@
     'params' : {}
   };
 </script>
-<script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js"></script>
+<script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js "></script>
 
 </div>
 
@@ -903,12 +881,11 @@
         </nav>
 
         <main>
-            <!-- HOME SECTION -->
             <section id="home" class="view active">
                 <div class="home-container">
                     <div class="home-hero">
                         <div class="home-logo-big">
-                            <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" alt="ArthaNex">
+                            <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 " alt="ArthaNex">
                         </div>
                         <h2 class="home-title">ArthaNex</h2>
                         <div class="home-subtitle">Best Offline Khata Book</div>
@@ -952,7 +929,7 @@
             'params' : {}
         };
     </script>
-    <script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js"></script>
+    <script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js "></script>
 </div>
                     <button class="btn btn-primary" onclick="app.switchTab('entry')" style="margin-top: 1rem; font-size: 1.1rem; padding: 1rem;">
                         ➕ Start New Entry
@@ -961,12 +938,11 @@
                     <div class="home-credits">
                         <h3>ArthaNex v2.1.0</h3>
                         <p>Author: Pintu Sikder</p>
-                        <p>By: <a href="https://arthixa.com" target="_blank">Arthixa</a></p>
+                        <p>By: <a href="https://arthixa.com " target="_blank">Arthixa</a></p>
                     </div>
                 </div>
             </section>
 
-            <!-- SECTION 1: CASH ENTRY -->
             <section id="entry" class="view">
                 <div class="card">
                     <div class="form-group">
@@ -1008,7 +984,6 @@
                         <input type="tel" id="entryMobile" class="form-control" placeholder="Optional">
                     </div>
 
-                    <!-- OPTIONAL ITEMS SECTION -->
                     <div class="form-group">
                         <label>Optional Items (Tags)</label>
                         <div class="tags-input-group">
@@ -1071,7 +1046,6 @@
                 </div>
             </section>
 
-            <!-- SECTION 2: HISTORY -->
             <section id="history" class="view">
                 <div class="card">
                     <div class="filter-container">
@@ -1105,7 +1079,6 @@
                 </div>
             </section>
 
-            <!-- SECTION 3: OUTSTANDING / DUES -->
             <section id="outstanding" class="view">
                 <div class="card">
                     <h3 style="margin-bottom: 15px; color: var(--primary);">Outstanding Summary</h3>
@@ -1133,7 +1106,6 @@
                 </div>
             </section>
 
-            <!-- SECTION 4: PARTY LEDGER -->
             <section id="ledger" class="view">
                 <div class="card">
                     <label>Search Customer / Party</label>
@@ -1177,18 +1149,10 @@
             </section>
         </main>
 
-        <!-- Settings Modal -->
         <div id="settingsModal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" onclick="app.toggleModal('settingsModal')">&times;</button>
                 <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Settings</h2>
-                
-                <!-- NEW: Theme Color Option -->
-                <div class="form-group">
-                    <label>Theme Color</label>
-                    <input type="color" id="themeColorInput" class="form-control" style="height: 50px; padding: 5px; cursor: pointer;" onchange="app.setThemeColor(this.value)">
-                </div>
-
                 <div class="form-group">
                     <label>Theme</label>
                     <select id="themeSelect" class="form-control" onchange="app.setTheme(this.value)">
@@ -1227,12 +1191,11 @@
                     <h3>ArthaNex</h3>
                     <p>Version 2.1.0</p>
                     <p>Author: Pintu Sikder</p>
-                    <p>By: <a href="https://arthixa.com" target="_blank" class="By-link">Arthixa</a></p>
+                    <p>By: <a href="https://arthixa.com " target="_blank" class="By-link">Arthixa</a></p>
                 </div>
             </div>
         </div>
 
-        <!-- Date Range Modal -->
         <div id="dateRangeModal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" onclick="app.toggleModal('dateRangeModal')">&times;</button>
@@ -1243,7 +1206,6 @@
             </div>
         </div>
 
-        <!-- View Details Modal -->
         <div id="viewDetailModal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" onclick="app.toggleModal('viewDetailModal')">&times;</button>
@@ -1252,14 +1214,10 @@
             </div>
         </div>
 
-        <!-- PRINTABLE AREA (Hidden from screen, visible on Print) -->
-        <div id="print-area">
-            <!-- Content injected via JS -->
-        </div>
+        <div id="print-area"></div>
 
         <div id="toast">Message here</div>
         
-        <!-- PWA INSTALL BANNER UI -->
         <div id="pwa-install-banner">
             <div class="pwa-content">
                 <div class="pwa-title">Install as App</div>
@@ -1272,7 +1230,6 @@
     </div>
 
     <script>
-        // PWA Install Prompt Logic
         let deferredPrompt;
         const installBanner = document.getElementById('pwa-install-banner');
         const installBtn = document.getElementById('installBtn');
@@ -1302,14 +1259,11 @@
             deferredPrompt = null;
         });
 
-        // App Logic
         const app = {
             state: {
                 currentTheme: 'light',
-                autoDeleteEnabled: false, 
+                autoDeleteEnabled: true, 
                 currentTags: [], 
-                // New State for Color
-                currentThemeColor: '#F67B34',
                 config: [
                     { name: "United States", currency: "USD", symbol: "$", flag: "🇺🇸", denominations: [1, 2, 5, 10, 20, 50, 100] },
                     { name: "India", currency: "INR", symbol: "₹", flag: "🇮🇳", denominations: [1, 2, 5, 10, 20, 50, 100, 200, 500] }, 
@@ -1379,7 +1333,6 @@
                 this.loadRecords();
                 this.cleanupOldRecords();
                 
-                // RESTORE LAST SELECTED COUNTRY
                 const savedCountryName = localStorage.getItem('arthaNex_lastCountry');
                 if (savedCountryName) {
                     const savedCountry = this.state.config.find(c => c.name === savedCountryName);
@@ -1410,7 +1363,6 @@
                 this.switchTab('home');
             },
 
-            // TAG FUNCTIONS
             addTag: function() {
                 const input = document.getElementById('tagInput');
                 const val = input.value.trim();
@@ -1569,46 +1521,9 @@
                 if(entryTrigger) entryTrigger.innerHTML = `${country.flag} ${country.name} (${country.currency})`;
                 const settingsTrigger = document.querySelector('#settingsCountryDropdown .custom-select__trigger span');
                 if(settingsTrigger) settingsTrigger.innerHTML = `${country.flag} ${country.name} (${country.currency})`;
-                localStorage.setItem('arthaNex_lastCountry', country.name); // Save Country Name to remember
+                localStorage.setItem('arthaNex_lastCountry', country.name);
                 document.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
                 this.loadDenominations();
-            },
-
-            // NEW: Theme Color Logic
-            setThemeColor: function(hex) {
-                this.state.currentThemeColor = hex;
-                localStorage.setItem('arthaNex_themeColor', hex);
-                
-                // Set Primary Color
-                document.documentElement.style.setProperty('--primary', hex);
-                
-                // Calculate Variants
-                const darkerHex = this.adjustColor(hex, -20);
-                const lighterHex = this.adjustColor(hex, 20);
-                
-                document.documentElement.style.setProperty('--primary-hover', darkerHex);
-                document.documentElement.style.setProperty('--accent', lighterHex);
-                
-                // Update Meta Tag for Mobile Browser Bar
-                document.querySelector('meta[name="theme-color"]').setAttribute("content", hex);
-            },
-            
-            loadThemeColor: function() {
-                const savedColor = localStorage.getItem('arthaNex_themeColor');
-                if(savedColor) {
-                    this.state.currentThemeColor = savedColor;
-                    document.getElementById('themeColorInput').value = savedColor;
-                    this.setThemeColor(savedColor);
-                } else {
-                    // Set default if nothing saved
-                    this.setThemeColor('#F67B34');
-                    document.getElementById('themeColorInput').value = '#F67B34';
-                }
-            },
-
-            // Helper to darken/lighten hex color
-            adjustColor: function(color, amount) {
-                return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
             },
             
             setTheme: function(theme) {
@@ -1621,10 +1536,6 @@
             loadSettings: function() {
                 const savedTheme = localStorage.getItem('arthaNex_theme');
                 if(savedTheme) this.setTheme(savedTheme);
-                
-                // Load Theme Color
-                this.loadThemeColor();
-
                 const autoDelete = localStorage.getItem('arthaNex_autoDelete');
                 if (autoDelete !== null) {
                     this.state.autoDeleteEnabled = (autoDelete === 'true');
@@ -1780,9 +1691,6 @@
                 document.getElementById('entryTime').value = now.toTimeString().substring(0,5);
             },
 
-            /* =========================================
-               PROFESSIONAL INVOICE DOWNLOAD LOGIC
-               ========================================= */
             downloadInvoice: function(id) {
                 const r = this.state.records.find(rec => rec.id === id);
                 if(!r) return;
@@ -1790,20 +1698,18 @@
                 const symbol = r.symbol;
                 const currency = r.currency;
                 const totalInWords = this.numberToWords(r.total) + " " + r.currency;
-                // Added "Items: " label here to ensure visibility in Invoice PDF
                 const itemsDesc = (r.tags && r.tags.length > 0) ? 'Items: ' + r.tags.join(', ') : (r.remarks || "Payment Received");
                 
                 const statusText = r.status === 'Paid' ? "PAID" : "DUE";
                 const statusColor = r.status === 'Paid' ? "#2e7d32" : "#c62828";
-                const invoiceNo = "#INV-" + r.id.toString().slice(-6); // Shorter Invoice No
+                const invoiceNo = "#INV-" + r.id.toString().slice(-6);
 
                 const invoiceHTML = `
                     <div class="invoice-layout">
-                        <!-- Professional Header -->
                         <div class="inv-header">
                             <div class="inv-brand-info">
                                 <div style="display:flex; align-items:center; gap:15px; margin-bottom:10px;">
-                                    <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" style="width:50px; height:50px;" alt="Logo">
+                                    <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 " style="width:50px; height:50px;" alt="Logo">
                                     <h1>ArthaNex</h1>
                                 </div>
                                 <p>Professional Khata Book & Ledger</p>
@@ -1824,7 +1730,6 @@
                             </div>
                         </div>
 
-                        <!-- Bill To Section -->
                         <div class="inv-bill-to">
                             <div class="inv-bill-label">Bill To</div>
                             <div class="inv-cust-name">${r.name}</div>
@@ -1834,7 +1739,6 @@
                             </div>
                         </div>
 
-                        <!-- Items Table -->
                         <table class="inv-table">
                             <thead>
                                 <tr>
@@ -1856,20 +1760,17 @@
                             </tbody>
                         </table>
 
-                        <!-- Amount in Words -->
                         <div class="inv-words">
                             <strong>Amount in Words:</strong> ${totalInWords}
                         </div>
 
-                        <!-- Signature -->
                         <div class="inv-sign">
                             <div class="inv-sign-line">Authorized Signature</div>
                         </div>
 
-                        <!-- Footer -->
                         <div class="inv-footer-note">
                             Thank you for your business.<br>
-                            Generated by ArthaNex | https://arthixa.com
+                            Generated by ArthaNex | https://arthixa.com 
                         </div>
                     </div>
                 `;
@@ -1878,16 +1779,13 @@
                 window.print();
             },
 
-            /* =========================================
-               PROFESSIONAL PDF REPORT LOGIC
-               ========================================= */
             formatDisplayDate: function(dateStr) {
                 const d = new Date(dateStr);
-                return d.toLocaleDateString('en-GB'); // DD/MM/YYYY format
+                return d.toLocaleDateString('en-GB');
             },
             formatDisplayDateTime: function() {
                 const now = new Date();
-                return now.toLocaleString('en-GB'); // DD/MM/YYYY, HH:mm
+                return now.toLocaleString('en-GB');
             },
 
             generatePDFReport: function(records, title, dateRangeStr) {
@@ -1899,7 +1797,6 @@
                 const symbol = this.state.selectedCountry ? this.state.selectedCountry.symbol : '';
                 const currency = this.state.selectedCountry ? this.state.selectedCountry.currency : '';
 
-                // CALCULATIONS
                 let totalIncome = 0;
                 let totalExpense = 0;
                 let totalReceivable = 0;
@@ -1913,7 +1810,6 @@
                     totalIncome += incomeVal;
                     totalExpense += expenseVal;
                     
-                    // Determine Color Class
                     let rowClass = '';
                     let statusDisplay = '';
                     
@@ -1922,11 +1818,11 @@
                         statusDisplay = 'Paid';
                     } else {
                         if(r.type === 'expense') {
-                            rowClass = 'row-orange'; // Payable
+                            rowClass = 'row-orange';
                             statusDisplay = 'Due (Payable)';
                             totalPayable += r.total;
                         } else {
-                            rowClass = 'row-red'; // Receivable
+                            rowClass = 'row-red';
                             statusDisplay = 'Due (Receivable)';
                             totalReceivable += r.total;
                         }
@@ -1935,7 +1831,6 @@
                     const amountInWords = this.numberToWords(r.total);
                     const typeDisplay = r.type === 'income' ? 'Income' : 'Expense';
 
-                    // Item Tags
                     const tagDisplay = r.tags && r.tags.length > 0 ? `<br><small style="color:#666">Items: ${r.tags.join(', ')}</small>` : '';
 
                     return `
@@ -1966,7 +1861,7 @@
                 const htmlContent = `
                     <div class="pdf-header">
                         <div class="pdf-logo-area">
-                            <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" class="pdf-logo" alt="Logo">
+                            <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 " class="pdf-logo" alt="Logo">
                             <div class="pdf-title-block">
                                 <h1>ArthaNex</h1>
                                 <h2>${title}</h2>
@@ -2025,7 +1920,7 @@
                     </div>
 
                     <div class="pdf-footer">
-                        https://arthixa.com
+                        https://arthixa.com 
                     </div>
                 `;
 
@@ -2038,11 +1933,9 @@
                 const thirtyDaysAgo = new Date(); 
                 thirtyDaysAgo.setDate(today.getDate() - 30);
                 
-                // Get date strings (YYYY-MM-DD) to avoid timezone issues
                 const todayStr = today.toISOString().split('T')[0];
                 const startStr = thirtyDaysAgo.toISOString().split('T')[0];
 
-                // Filter records by comparing strings directly
                 const filtered = this.state.records.filter(r => {
                     return r.date >= startStr && r.date <= todayStr;
                 });
@@ -2074,8 +1967,6 @@
                     return;
                 }
 
-                // FIX: Compare strings directly (YYYY-MM-DD) to avoid timezone conversion bugs
-                // No need to create Date objects which are susceptible to local vs UTC offsets.
                 const filtered = this.state.records.filter(r => {
                     return r.date >= startStr && r.date <= endStr;
                 });
@@ -2309,7 +2200,6 @@
                 const typeBadge = r.type === 'expense' ? '<span class="badge expense">Payable</span>' : '<span class="badge receivable">Income</span>';
                 const statusBadge = r.status === 'Due' ? '<span class="badge due">Due</span>' : '';
                 
-                // Ensuring items are shown explicitly in View Details Modal
                 const tagsHtml = r.tags && r.tags.length > 0 ? `<div class="detail-row"><span>Items:</span> <span>${r.tags.join(', ')}</span></div>` : '';
 
                 let transactionText = "";
@@ -2351,7 +2241,7 @@
                 if(r.type === 'income') { transactionText = (r.status === 'Paid') ? "Received From" : "Receivable From"; } 
                 else { transactionText = (r.status === 'Paid') ? "Paid To" : "Payable To"; }
 
-                const msg = `ArthaNex:\nTransaction: ${transactionText} ${r.name}\nAmount: ${r.symbol}${r.total}\nDate: ${r.date}\n\nDownload App: https://arthixa.com`;
+                const msg = `ArthaNex:\nTransaction: ${transactionText} ${r.name}\nAmount: ${r.symbol}${r.total}\nDate: ${r.date}\n\nDownload App: https://arthixa.com `;
                 if (navigator.share) navigator.share({ title: 'Record', text: msg }).catch(console.error);
                 else this.showToast("Share not supported");
             },
@@ -2407,7 +2297,6 @@
     </script>
     
     <script>
-        // Service Worker Registration Logic
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
