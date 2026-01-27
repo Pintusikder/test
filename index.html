@@ -10,21 +10,23 @@
     
     <title>ArthaNex - Offline Khata Book</title>
     <meta name="description" content="ArthaNex is best free offline Khata book and daily cash collection app. Manage small business ledger, party dues, and expenses without internet. Simple business calculator.">
-    <meta name="theme-color" content="#F36C21">
+    <meta name="theme-color" content="#F67B34">
     
     <!-- Manifest Link -->
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 ">
+    <link rel="apple-touch-icon" href="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com ">
-    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300 ;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #F36C21;       
+            /* Default Color - Will be overridden by JS */
+            --primary: #F67B34;       
             --primary-hover: #D65612;
             --accent: #FF8A3D;        
+            
             --secondary: #1C1C1C;     
             --neutral: #6B6E63;       
             --light-bg: #F5F5F5;      
@@ -97,7 +99,7 @@
         header {
             background-color: var(--primary);
             color: #fff;
-            padding:1rem;
+            padding:0.8rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -105,9 +107,23 @@
         }
 
         .brand { display: flex; align-items: center; gap: 10px; flex-direction: column; align-items: flex-start; }
-        .brand-top { display: flex; align-items: center; gap: 10px; }
+        .brand-top { display: flex; align-items: center; gap: 10px; width: 100%; }
         .brand h1 { font-size:1.25rem; font-weight: 700; margin: 0; line-height: 1; }
         
+        /* Active Profile Name in Header */
+        .current-profile-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+
         .brand-icon { 
             width: 40px; 
             height: 40px; 
@@ -218,6 +234,9 @@
         .view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* --------------------------------------------------
+           HOME PAGE
+           -------------------------------------------------- */
         .home-container {
             display: flex;
             flex-direction: column;
@@ -344,6 +363,9 @@
             font-weight: 600;
         }
 
+        /* --------------------------------------------------
+           OTHER STYLES
+           -------------------------------------------------- */
         .card { background: var(--card-bg); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
         .form-group { margin-bottom: 1rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--neutral); font-weight: 500; word-break: break-word; }
@@ -384,7 +406,7 @@
         }
         .denom-subtotal { font-size: 0.7rem; color: var(--primary); font-weight: 500; }
 
-        .total-display { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 1.5rem; border-radius: var(--radius-lg); text-align: center; margin-bottom:1.5rem; box-shadow: var(--shadow-md); }
+        .total-display { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 1.5rem; border-radius: var(--radius-lg); text-align: center; margin-bottom: 1.5rem; box-shadow: var(--shadow-md); }
         .total-label { font-size: 0.9rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
         .total-amount { font-size: 2.2rem; font-weight: 700; margin: 0.5rem 0; font-family: 'Roboto Mono', monospace; word-break: break-all; }
         .total-words { font-style: italic; opacity: 0.9; font-size: 0.9rem; word-break: break-word; }
@@ -395,7 +417,10 @@
         .btn-secondary { background-color: var(--neutral); color: #fff; }
         .btn-success { background-color: #2e7d32; color: #fff; }
         .btn-outline { background-color: transparent; border: 1px solid var(--neutral); color: var(--neutral); }
+        .btn-danger { background-color: #dc3545; color: #fff; }
+        .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.8rem; width: auto; }
 
+        /* TAGS STYLES */
         .tags-input-group { display: flex; gap: 8px; }
         .tags-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .tag-chip {
@@ -473,6 +498,7 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
         
+        /* PWA INSTALL BANNER */
         #pwa-install-banner {
             display: none;
             position: fixed;
@@ -554,6 +580,22 @@
         .open .arrow::after { left: 3px; transform: rotate(-45deg); }
         .search-hint { font-size: 0.75rem; color: var(--neutral); margin-top: 5px; font-style: italic; }
 
+        /* Profile List Styles */
+        .profile-list { list-style: none; margin-top: 10px; }
+        .profile-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+            margin-bottom: 8px; background: var(--card-bg);
+        }
+        .profile-item.active { border-color: var(--primary); background-color: rgba(243, 108, 33, 0.05); }
+        .profile-name { font-weight: 600; font-size: 0.9rem; color: var(--text-color); }
+        .profile-actions { display: flex; gap: 5px; }
+        .profile-btn {
+            padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; border: none; font-weight: 600;
+        }
+        .btn-switch { background-color: var(--primary); color: #fff; }
+        .btn-delete { background-color: #dc3545; color: #fff; }
+
         .credits-container {
             text-align: center;
             margin-top: 1.5rem;
@@ -575,12 +617,16 @@
             font-weight: 600;
         }
 
+        /* =========================================
+           PROFESSIONAL PDF & INVOICE STYLES
+           ========================================= */
         #print-area { display: none; }
         
         @media print {
             body * { visibility: hidden; }
             #print-area, #print-area * { visibility: visible; }
             
+            /* Enable Page Counter */
             body { 
                 counter-increment: page; 
             }
@@ -595,14 +641,17 @@
                 color: #000; 
                 font-size: 12px; 
                 font-family: 'Helvetica', sans-serif;
+                /* Reducing padding to maximize content space */
                 padding-bottom: 30px; 
             }
 
+            /* PAGE SETTINGS */
             @page {
                 size: A4;
-                margin: 10mm 5mm 10mm 5mm;
+                margin: 10mm 5mm 10mm 5mm; /* Top/Bottom 10mm, Left/Right 5mm to fit more data */
             }
 
+            /* --- REPORT STYLES --- */
             .pdf-header {
                 display: flex;
                 align-items: flex-start;
@@ -649,7 +698,7 @@
                 padding: 15px;
                 border: 2px solid #333;
                 background-color: #fafafa;
-                margin-bottom: 35px;
+                margin-bottom: 35px; /* Reduced margin to fit new footer */
             }
             .pdf-summary-row {
                 display: flex;
@@ -662,14 +711,15 @@
             .pdf-summary-label { font-weight: 600; }
             .pdf-summary-val { font-family: 'Courier New', monospace; font-weight: 600; }
 
+            /* UPDATED FOOTER: Left-Center-Right */
             .pdf-footer {
                 position: fixed;
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 30px;
+                height: 30px; /* Ensure height for absolute positioning children */
                 display: flex;
-                justify-content: center;
+                justify-content: center; /* Center URL text */
                 align-items: center;
                 font-size: 9px; 
                 color: #777;
@@ -678,34 +728,35 @@
                 z-index: 9999;
                 line-height: 1.2;
             }
+            /* Left Element */
             .pdf-footer::before {
                 content: "Generated by ArthaNex";
                 position: absolute;
                 left: 10px;
             }
+            /* Right Element */
             .pdf-footer::after {
                 content: "Page " counter(page);
                 position: absolute;
                 right: 10px;
             }
 
+            /* --- PROFESSIONAL INVOICE STYLES --- */
             .invoice-layout {
                 max-width: 800px;
                 margin: 0 auto;
                 padding: 40px;
                 font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
                 color: #333;
-                border: none;
-                padding-bottom: 60px;
-                position: relative;
-                min-height: 100vh;
+                border: none; /* Clean print look */
             }
 
+            /* Professional Header */
             .inv-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
-                border-bottom: 3px solid #F36C21;
+                border-bottom: 3px solid #F36C21; /* Brand Accent Line */
                 padding-bottom: 20px;
                 margin-bottom: 30px;
             }
@@ -725,6 +776,7 @@
             .inv-meta-label { font-weight: 600; color: #666; text-align: right; }
             .inv-meta-value { font-weight: 600; color: #333; }
             
+            /* Bill To Box */
             .inv-bill-to {
                 margin-bottom: 30px;
                 background-color: #f9f9f9;
@@ -736,13 +788,14 @@
             .inv-cust-name { font-size: 20px; font-weight: 700; color: #333; margin-bottom: 5px; }
             .inv-cust-details { font-size: 14px; color: #555; line-height: 1.4; }
 
+            /* Professional Table */
             .inv-table { 
                 width: 100%; 
                 border-collapse: collapse; 
                 margin-bottom: 20px;
             }
             .inv-table th { 
-                background-color: #333;
+                background-color: #333; /* Dark Header */
                 color: #fff; 
                 padding: 12px 15px; 
                 text-align: left; 
@@ -758,8 +811,9 @@
                 color: #444;
                 vertical-align: middle;
             }
+            /* Zebra Striping */
             .inv-table tr:nth-child(even) { background-color: #fcfcfc; } 
-            .inv-table tr:hover { background-color: #f1f1f1; }
+            .inv-table tr:hover { background-color: #f1f1f1; } /* Interactive feel if viewed on screen */
             
             .inv-table .text-right { text-align: right; font-weight: 600; font-size: 15px; }
 
@@ -772,6 +826,7 @@
             }
             .inv-total-row .text-right { color: #F36C21; font-size: 20px; }
 
+            /* Words Section */
             .inv-words { 
                 margin: 30px 0; 
                 padding: 20px; 
@@ -783,6 +838,7 @@
                 border-radius: 4px;
             }
 
+            /* Signature Area */
             .inv-sign { margin-top: 60px; display: flex; justify-content: flex-end; }
             .inv-sign-line { 
                 border-top: 2px solid #333; 
@@ -795,6 +851,7 @@
                 font-weight: 600;
             }
 
+            /* Invoice Footer (Fixed) */
             .inv-footer-note {
                 position: fixed;
                 bottom: 0;
@@ -808,20 +865,19 @@
                 padding: 10px 0;
                 background: #fff;
                 z-index: 9999;
-                page-break-inside: avoid;
-                page-break-before: avoid;
             }
+            /* Add page number using CSS counter */
             .inv-footer-note::after {
                 content: " - Page " counter(page);
             }
 
+            /* Print Helper Classes */
             .text-right { text-align: right; }
             .text-center { text-align: center; }
             .font-bold { font-weight: 700; }
             .no-data { text-align: center; padding: 40px; font-size: 14px; font-style: italic; color: #777; }
         }
     </style>
-<base target="_blank">
 </head>
 <body data-theme="light">
 
@@ -830,13 +886,15 @@
             <div class="brand">
                 <div class="brand-top">
                     <div class="brand-icon">
-                        <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 " alt="ArthaNex Logo">
+                        <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" alt="ArthaNex Logo">
                     </div>
                     <div>
                         <h1>ArthaNex</h1>
+                        <!-- Active Profile Display -->
+                        <div class="current-profile-badge" id="headerProfileName" onclick="app.toggleModal('settingsModal')">My Business</div>
                     </div>
                 </div>
-                <a href="https://arthixa.com " target="_blank">by Arthixa</a>
+                <a href="https://arthixa.com" target="_blank">by Arthixa</a>
             </div>
             <div class="header-actions">
                 <button id="settingsBtn" aria-label="Settings">⚙</button>
@@ -853,7 +911,7 @@
     'params' : {}
   };
 </script>
-<script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js "></script>
+<script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js"></script>
 
 </div>
 
@@ -881,11 +939,12 @@
         </nav>
 
         <main>
+            <!-- HOME SECTION -->
             <section id="home" class="view active">
                 <div class="home-container">
                     <div class="home-hero">
                         <div class="home-logo-big">
-                            <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472 " alt="ArthaNex">
+                            <img src="https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png?auth_key=1868816468-3c27614d0d374d62a8d011ef8cc50a8f-0-db6fd19e4def068c453c4c8f2352a472" alt="ArthaNex">
                         </div>
                         <h2 class="home-title">ArthaNex</h2>
                         <div class="home-subtitle">Best Offline Khata Book</div>
@@ -929,20 +988,21 @@
             'params' : {}
         };
     </script>
-    <script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js "></script>
+    <script src="https://www.highperformanceformat.com/37aea13fbdf3f7cf958070dd70143f8d/invoke.js"></script>
 </div>
                     <button class="btn btn-primary" onclick="app.switchTab('entry')" style="margin-top: 1rem; font-size: 1.1rem; padding: 1rem;">
                         ➕ Start New Entry
                     </button>
 
                     <div class="home-credits">
-                        <h3>ArthaNex v2.1.0</h3>
+                        <h3>ArthaNex v2.2.0</h3>
                         <p>Author: Pintu Sikder</p>
-                        <p>By: <a href="https://arthixa.com " target="_blank">Arthixa</a></p>
+                        <p>By: <a href="https://arthixa.com" target="_blank">Arthixa</a></p>
                     </div>
                 </div>
             </section>
 
+            <!-- SECTION1: CASH ENTRY -->
             <section id="entry" class="view">
                 <div class="card">
                     <div class="form-group">
@@ -984,6 +1044,7 @@
                         <input type="tel" id="entryMobile" class="form-control" placeholder="Optional">
                     </div>
 
+                    <!-- OPTIONAL ITEMS SECTION -->
                     <div class="form-group">
                         <label>Optional Items (Tags)</label>
                         <div class="tags-input-group">
@@ -1046,6 +1107,7 @@
                 </div>
             </section>
 
+            <!-- SECTION 2: HISTORY -->
             <section id="history" class="view">
                 <div class="card">
                     <div class="filter-container">
@@ -1079,6 +1141,7 @@
                 </div>
             </section>
 
+            <!-- SECTION 3: OUTSTANDING / DUES -->
             <section id="outstanding" class="view">
                 <div class="card">
                     <h3 style="margin-bottom: 15px; color: var(--primary);">Outstanding Summary</h3>
@@ -1106,6 +1169,7 @@
                 </div>
             </section>
 
+            <!-- SECTION 4: PARTY LEDGER -->
             <section id="ledger" class="view">
                 <div class="card">
                     <label>Search Customer / Party</label>
@@ -1149,6 +1213,7 @@
             </section>
         </main>
 
+        <!-- Settings Modal -->
         <div id="settingsModal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" onclick="app.toggleModal('settingsModal')">&times;</button>
@@ -1160,6 +1225,31 @@
                         <option value="dark">Dark Mode</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label>App Theme Color</label>
+                    <input type="color" id="primaryColorInput" class="form-control" style="height: 50px; padding:5px;" onchange="app.setPrimaryColor(this.value)">
+                    <!-- Quick Select Preset Colors -->
+                    <div style="margin-top: 10px; display: flex; gap: 10px; justify-content: flex-start;">
+                        <div onclick="app.setPrimaryColor('#F67B34')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #F67B34; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Default Orange"></div>
+                        <div onclick="app.setPrimaryColor('#FF0000')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #FF0000; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Deep Orange"></div>
+                        <div onclick="app.setPrimaryColor('#007bff')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #007bff; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Blue"></div>
+                        <div onclick="app.setPrimaryColor('#28a745')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #28a745; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Green"></div>
+                        <div onclick="app.setPrimaryColor('#6f42c1')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #6f42c1; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Purple"></div>
+                        <div onclick="app.setPrimaryColor('#e83e8c')" style="width: 35px; height: 35px; border-radius: 50%; background-color: #e83e8c; cursor: pointer; border: 2px solid rgba(0,0,0,0.1);" title="Pink"></div>
+                    </div>
+                </div>
+
+                <!-- PROFILE MANAGEMENT SECTION -->
+                <div class="card" style="margin-bottom: 1rem; border: 1px dashed var(--primary); background: rgba(243, 108, 33, 0.05);">
+                    <label style="font-weight: 700; color: var(--primary); margin-bottom: 10px;">Manage Business Profiles</label>
+                    <div class="form-group" style="margin-bottom: 5px;">
+                        <input type="text" id="newProfileName" class="form-control" placeholder="New Shop/Business Name">
+                        <button class="btn btn-primary btn-sm" style="margin-top:5px;" onclick="app.createProfile()">Create New Profile</button>
+                    </div>
+                    <ul id="profileListContainer" class="profile-list"></ul>
+                </div>
+                <!-- END PROFILE SECTION -->
+
                 <div class="form-group">
                     <label>Country & Currency</label>
                     <div class="custom-select-wrapper">
@@ -1189,13 +1279,14 @@
                 <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border);">
                 <div class="credits-container">
                     <h3>ArthaNex</h3>
-                    <p>Version 2.1.0</p>
+                    <p>Version 2.2.0</p>
                     <p>Author: Pintu Sikder</p>
-                    <p>By: <a href="https://arthixa.com " target="_blank" class="By-link">Arthixa</a></p>
+                    <p>By: <a href="https://arthixa.com" target="_blank" class="By-link">Arthixa</a></p>
                 </div>
             </div>
         </div>
 
+        <!-- Date Range Modal -->
         <div id="dateRangeModal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" onclick="app.toggleModal('dateRangeModal')">&times;</button>
@@ -1206,6 +1297,7 @@
             </div>
         </div>
 
+        <!-- View Details Modal -->
         <div id="viewDetailModal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" onclick="app.toggleModal('viewDetailModal')">&times;</button>
@@ -1214,10 +1306,14 @@
             </div>
         </div>
 
-        <div id="print-area"></div>
+        <!-- PRINTABLE AREA (Hidden from screen, visible on Print) -->
+        <div id="print-area">
+            <!-- Content injected via JS -->
+        </div>
 
         <div id="toast">Message here</div>
         
+        <!-- PWA INSTALL BANNER UI -->
         <div id="pwa-install-banner">
             <div class="pwa-content">
                 <div class="pwa-title">Install as App</div>
@@ -1230,6 +1326,7 @@
     </div>
 
     <script>
+        // PWA Install Prompt Logic
         let deferredPrompt;
         const installBanner = document.getElementById('pwa-install-banner');
         const installBtn = document.getElementById('installBtn');
@@ -1259,11 +1356,15 @@
             deferredPrompt = null;
         });
 
+        // App Logic
         const app = {
             state: {
                 currentTheme: 'light',
-                autoDeleteEnabled: true, 
-                currentTags: [], 
+                primaryColor: '#F67B34', // Updated Default Color
+                autoDeleteEnabled: false,
+                currentTags: [],
+                profiles: [{ id: 1, name: "My Business" }], // Default Profile
+                currentProfileId: 1, // Default ID
                 config: [
                     { name: "United States", currency: "USD", symbol: "$", flag: "🇺🇸", denominations: [1, 2, 5, 10, 20, 50, 100] },
                     { name: "India", currency: "INR", symbol: "₹", flag: "🇮🇳", denominations: [1, 2, 5, 10, 20, 50, 100, 200, 500] }, 
@@ -1328,11 +1429,14 @@
 
             init: function() {
                 this.loadSettings();
+                this.loadProfiles();
                 this.setupDropdown();
                 this.setupSettingsDropdown();
                 this.loadRecords();
                 this.cleanupOldRecords();
+                this.migrateRecordsToProfile(); // Migrate old data
                 
+                // RESTORE LAST SELECTED COUNTRY
                 const savedCountryName = localStorage.getItem('arthaNex_lastCountry');
                 if (savedCountryName) {
                     const savedCountry = this.state.config.find(c => c.name === savedCountryName);
@@ -1342,6 +1446,8 @@
                 }
 
                 this.updateDashboard();
+                this.updateHeaderProfileDisplay();
+                this.renderProfileList();
                 
                 const now = new Date();
                 document.getElementById('entryDate').valueAsDate = now;
@@ -1363,6 +1469,136 @@
                 this.switchTab('home');
             },
 
+            // PROFILE FUNCTIONS
+            loadProfiles: function() {
+                const savedProfiles = localStorage.getItem('arthaNex_profiles');
+                if(savedProfiles) {
+                    this.state.profiles = JSON.parse(savedProfiles);
+                }
+                const savedProfileId = localStorage.getItem('arthaNex_currentProfileId');
+                if(savedProfileId) {
+                    this.state.currentProfileId = parseInt(savedProfileId);
+                }
+            },
+            saveProfiles: function() {
+                localStorage.setItem('arthaNex_profiles', JSON.stringify(this.state.profiles));
+                localStorage.setItem('arthaNex_currentProfileId', this.state.currentProfileId);
+                this.renderProfileList();
+                this.updateHeaderProfileDisplay();
+            },
+            createProfile: function() {
+                const input = document.getElementById('newProfileName');
+                const name = input.value.trim();
+                if(!name) {
+                    this.showToast("Please enter a profile name.");
+                    return;
+                }
+                const newId = Date.now();
+                this.state.profiles.push({ id: newId, name: name });
+                this.state.currentProfileId = newId; // Switch to new profile immediately
+                this.saveProfiles();
+                input.value = "";
+                this.showToast("New Profile Created!");
+                this.updateDashboard(); // Update dashboard to show empty state
+                this.renderHistory();
+                this.renderOutstanding('all');
+            },
+            switchProfile: function(id) {
+                this.state.currentProfileId = id;
+                this.saveProfiles();
+                this.updateDashboard();
+                this.renderHistory();
+                this.renderOutstanding('all');
+                // Clear ledger view if open to avoid confusion
+                this.clearLedger();
+                this.showToast("Switched to " + this.state.profiles.find(p => p.id === id).name);
+            },
+            deleteProfile: function(id, event) {
+                event.stopPropagation();
+                if(this.state.profiles.length <= 1) {
+                    this.showToast("You must have at least one profile.");
+                    return;
+                }
+                if(confirm("Are you sure? All records in this profile will be deleted.")) {
+                    // Delete records
+                    this.state.records = this.state.records.filter(r => r.profileId !== id);
+                    localStorage.setItem('arthaNex_records', JSON.stringify(this.state.records));
+                    
+                    // Delete profile
+                    this.state.profiles = this.state.profiles.filter(p => p.id !== id);
+                    
+                    // If deleted profile was active, switch to first available
+                    if(this.state.currentProfileId === id) {
+                        this.state.currentProfileId = this.state.profiles[0].id;
+                    }
+                    
+                    this.saveProfiles();
+                    this.updateDashboard();
+                    this.renderHistory();
+                    this.renderOutstanding('all');
+                    this.showToast("Profile deleted.");
+                }
+            },
+            renderProfileList: function() {
+                const container = document.getElementById('profileListContainer');
+                container.innerHTML = '';
+                this.state.profiles.forEach(p => {
+                    const li = document.createElement('li');
+                    li.className = `profile-item ${p.id === this.state.currentProfileId ? 'active' : ''}`;
+                    
+                    let deleteBtn = '';
+                    if(this.state.profiles.length > 1) {
+                        deleteBtn = `<button class="profile-btn btn-delete" onclick="app.deleteProfile(${p.id}, event)">Delete</button>`;
+                    }
+
+                    li.innerHTML = `
+                        <span class="profile-name">${p.name}</span>
+                        <div class="profile-actions">
+                            ${p.id !== this.state.currentProfileId ? `<button class="profile-btn btn-switch" onclick="app.switchProfile(${p.id})">Switch</button>` : '<span class="profile-btn" style="background:#ccc; color:#555; cursor:default;">Active</span>'}
+                            ${deleteBtn}
+                        </div>
+                    `;
+                    container.appendChild(li);
+                });
+            },
+            updateHeaderProfileDisplay: function() {
+                const profile = this.state.profiles.find(p => p.id === this.state.currentProfileId);
+                if(profile) {
+                    document.getElementById('headerProfileName').textContent = profile.name;
+                }
+            },
+            // Helper to get records for current profile
+            getProfileRecords: function() {
+                return this.state.records.filter(r => r.profileId === this.state.currentProfileId);
+            },
+            migrateRecordsToProfile: function() {
+                // Check if any record lacks profileId (old data)
+                const needsMigration = this.state.records.some(r => !r.profileId);
+                if(needsMigration) {
+                    this.state.records.forEach(r => {
+                        if(!r.profileId) {
+                            r.profileId = this.state.currentProfileId; // Assign to current active profile
+                        }
+                    });
+                    localStorage.setItem('arthaNex_records', JSON.stringify(this.state.records));
+                }
+            },
+            // END PROFILE FUNCTIONS
+
+            // NEW FUNCTION: SET PRIMARY COLOR
+            setPrimaryColor: function(color) {
+                this.state.primaryColor = color;
+                document.documentElement.style.setProperty('--primary', color);
+                document.documentElement.style.setProperty('--accent', color);
+                document.documentElement.style.setProperty('--primary-hover', color);
+                document.querySelector('meta[name="theme-color"]').setAttribute("content", color);
+                localStorage.setItem('arthaNex_primaryColor', color);
+                
+                // Update UI elements that might use hardcoded colors
+                document.getElementById('primaryColorInput').value = color;
+            },
+
+            // TAG FUNCTIONS
             addTag: function() {
                 const input = document.getElementById('tagInput');
                 const val = input.value.trim();
@@ -1419,16 +1655,17 @@
             },
 
             updateDashboard: function() {
-                const totalIncome = this.state.records.filter(r => r.type === 'income').reduce((sum, r) => sum + r.total, 0);
-                const totalExpense = this.state.records.filter(r => r.type === 'expense').reduce((sum, r) => sum + r.total, 0);
+                const profileRecords = this.getProfileRecords();
+                const totalIncome = profileRecords.filter(r => r.type === 'income').reduce((sum, r) => sum + r.total,0);
+                const totalExpense = profileRecords.filter(r => r.type === 'expense').reduce((sum, r) => sum + r.total,0);
                 const netBalance = totalIncome - totalExpense;
 
                 document.getElementById('dashIncome').textContent = totalIncome.toLocaleString();
                 document.getElementById('dashExpense').textContent = totalExpense.toLocaleString();
                 document.getElementById('dashBalance').textContent = netBalance.toLocaleString();
                 
-                const dueRec = this.state.records.filter(r => r.status === 'Due' && r.type === 'income').reduce((sum, r) => sum + r.total, 0);
-                const duePay = this.state.records.filter(r => r.status === 'Due' && r.type === 'expense').reduce((sum, r) => sum + r.total, 0);
+                const dueRec = profileRecords.filter(r => r.status === 'Due' && r.type === 'income').reduce((sum, r) => sum + r.total,0);
+                const duePay = profileRecords.filter(r => r.status === 'Due' && r.type === 'expense').reduce((sum, r) => sum + r.total,0);
                 document.getElementById('dueReceivable').textContent = dueRec.toLocaleString();
                 document.getElementById('duePayable').textContent = duePay.toLocaleString();
             },
@@ -1521,7 +1758,7 @@
                 if(entryTrigger) entryTrigger.innerHTML = `${country.flag} ${country.name} (${country.currency})`;
                 const settingsTrigger = document.querySelector('#settingsCountryDropdown .custom-select__trigger span');
                 if(settingsTrigger) settingsTrigger.innerHTML = `${country.flag} ${country.name} (${country.currency})`;
-                localStorage.setItem('arthaNex_lastCountry', country.name);
+                localStorage.setItem('arthaNex_lastCountry', country.name); // Save Country Name to remember
                 document.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
                 this.loadDenominations();
             },
@@ -1534,8 +1771,15 @@
                 localStorage.setItem('arthaNex_theme', theme);
             },
             loadSettings: function() {
+                // Load Theme
                 const savedTheme = localStorage.getItem('arthaNex_theme');
                 if(savedTheme) this.setTheme(savedTheme);
+
+                // Load Primary Color
+                const savedColor = localStorage.getItem('arthaNex_primaryColor');
+                if(savedColor) this.setPrimaryColor(savedColor);
+
+                // Load Auto Delete
                 const autoDelete = localStorage.getItem('arthaNex_autoDelete');
                 if (autoDelete !== null) {
                     this.state.autoDeleteEnabled = (autoDelete === 'true');
@@ -1691,6 +1935,9 @@
                 document.getElementById('entryTime').value = now.toTimeString().substring(0,5);
             },
 
+            /* =========================================
+               PROFESSIONAL INVOICE DOWNLOAD LOGIC
+               ========================================= */
             downloadInvoice: function(id) {
                 const r = this.state.records.find(rec => rec.id === id);
                 if(!r) return;
@@ -1698,14 +1945,16 @@
                 const symbol = r.symbol;
                 const currency = r.currency;
                 const totalInWords = this.numberToWords(r.total) + " " + r.currency;
+                // Added "Items: " label here to ensure visibility in Invoice PDF
                 const itemsDesc = (r.tags && r.tags.length > 0) ? 'Items: ' + r.tags.join(', ') : (r.remarks || "Payment Received");
                 
                 const statusText = r.status === 'Paid' ? "PAID" : "DUE";
                 const statusColor = r.status === 'Paid' ? "#2e7d32" : "#c62828";
-                const invoiceNo = "#INV-" + r.id.toString().slice(-6);
+                const invoiceNo = "#INV-" + r.id.toString().slice(-6); // Shorter Invoice No
 
                 const invoiceHTML = `
                     <div class="invoice-layout">
+                        <!-- Professional Header -->
                         <div class="inv-header">
                             <div class="inv-brand-info">
                                 <div style="display:flex; align-items:center; gap:15px; margin-bottom:10px;">
@@ -1730,6 +1979,7 @@
                             </div>
                         </div>
 
+                        <!-- Bill To Section -->
                         <div class="inv-bill-to">
                             <div class="inv-bill-label">Bill To</div>
                             <div class="inv-cust-name">${r.name}</div>
@@ -1739,6 +1989,7 @@
                             </div>
                         </div>
 
+                        <!-- Items Table -->
                         <table class="inv-table">
                             <thead>
                                 <tr>
@@ -1760,14 +2011,17 @@
                             </tbody>
                         </table>
 
+                        <!-- Amount in Words -->
                         <div class="inv-words">
                             <strong>Amount in Words:</strong> ${totalInWords}
                         </div>
 
+                        <!-- Signature -->
                         <div class="inv-sign">
                             <div class="inv-sign-line">Authorized Signature</div>
                         </div>
 
+                        <!-- Footer -->
                         <div class="inv-footer-note">
                             Thank you for your business.<br>
                             Generated by ArthaNex | https://arthixa.com 
@@ -1779,13 +2033,16 @@
                 window.print();
             },
 
+            /* =========================================
+               PROFESSIONAL PDF REPORT LOGIC
+               ========================================= */
             formatDisplayDate: function(dateStr) {
                 const d = new Date(dateStr);
-                return d.toLocaleDateString('en-GB');
+                return d.toLocaleDateString('en-GB'); // DD/MM/YYYY format
             },
             formatDisplayDateTime: function() {
                 const now = new Date();
-                return now.toLocaleString('en-GB');
+                return now.toLocaleString('en-GB'); // DD/MM/YYYY, HH:mm
             },
 
             generatePDFReport: function(records, title, dateRangeStr) {
@@ -1797,6 +2054,7 @@
                 const symbol = this.state.selectedCountry ? this.state.selectedCountry.symbol : '';
                 const currency = this.state.selectedCountry ? this.state.selectedCountry.currency : '';
 
+                // CALCULATIONS
                 let totalIncome = 0;
                 let totalExpense = 0;
                 let totalReceivable = 0;
@@ -1810,6 +2068,7 @@
                     totalIncome += incomeVal;
                     totalExpense += expenseVal;
                     
+                    // Determine Color Class
                     let rowClass = '';
                     let statusDisplay = '';
                     
@@ -1818,11 +2077,11 @@
                         statusDisplay = 'Paid';
                     } else {
                         if(r.type === 'expense') {
-                            rowClass = 'row-orange';
+                            rowClass = 'row-orange'; // Payable
                             statusDisplay = 'Due (Payable)';
                             totalPayable += r.total;
                         } else {
-                            rowClass = 'row-red';
+                            rowClass = 'row-red'; // Receivable
                             statusDisplay = 'Due (Receivable)';
                             totalReceivable += r.total;
                         }
@@ -1831,6 +2090,7 @@
                     const amountInWords = this.numberToWords(r.total);
                     const typeDisplay = r.type === 'income' ? 'Income' : 'Expense';
 
+                    // Item Tags
                     const tagDisplay = r.tags && r.tags.length > 0 ? `<br><small style="color:#666">Items: ${r.tags.join(', ')}</small>` : '';
 
                     return `
@@ -1933,9 +2193,11 @@
                 const thirtyDaysAgo = new Date(); 
                 thirtyDaysAgo.setDate(today.getDate() - 30);
                 
+                // Get date strings (YYYY-MM-DD) to avoid timezone issues
                 const todayStr = today.toISOString().split('T')[0];
                 const startStr = thirtyDaysAgo.toISOString().split('T')[0];
 
+                // Filter records by comparing strings directly
                 const filtered = this.state.records.filter(r => {
                     return r.date >= startStr && r.date <= todayStr;
                 });
@@ -1967,6 +2229,8 @@
                     return;
                 }
 
+                // FIX: Compare strings directly (YYYY-MM-DD) to avoid timezone conversion bugs
+                // No need to create Date objects which are susceptible to local vs UTC offsets.
                 const filtered = this.state.records.filter(r => {
                     return r.date >= startStr && r.date <= endStr;
                 });
@@ -2200,6 +2464,7 @@
                 const typeBadge = r.type === 'expense' ? '<span class="badge expense">Payable</span>' : '<span class="badge receivable">Income</span>';
                 const statusBadge = r.status === 'Due' ? '<span class="badge due">Due</span>' : '';
                 
+                // Ensuring items are shown explicitly in View Details Modal
                 const tagsHtml = r.tags && r.tags.length > 0 ? `<div class="detail-row"><span>Items:</span> <span>${r.tags.join(', ')}</span></div>` : '';
 
                 let transactionText = "";
@@ -2297,6 +2562,7 @@
     </script>
     
     <script>
+        // Service Worker Registration Logic
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
