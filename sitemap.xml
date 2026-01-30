@@ -5,14 +5,14 @@
   
   <!-- Main App Page - English -->
   <url>
-    <loc>https://arthixa.com/arthanex</loc>
+    <loc>https://github.com/Pintusikder/ArthaNex</loc>
     <lastmod>2025-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://arthixa.com/arthanex"/>
-    <xhtml:link rel="alternate" hreflang="bn" href="https://arthixa.com/arthanex/bn"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://arthixa.com/arthanex/hi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthixa.com/arthanex"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://github.com/Pintusikder/ArthaNex"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://github.com/Pintusikder/ArthaNex/bn"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://github.com/Pintusikder/ArthaNex/hi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://github.com/Pintusikder/ArthaNex"/>
     <image:image>
       <image:loc>https://z-cdn-media.chatglm.cn/files/af039fbb-879d-471f-a2d8-a6fbaac11f8b.png</image:loc>
       <image:title>ArthaNex - Digital Khata Book App</image:title>
@@ -22,26 +22,26 @@
 
   <!-- Bengali Version -->
   <url>
-    <loc>https://arthixa.com/arthanex/bn</loc>
+    <loc>https://github.com/Pintusikder/ArthaNex/bn</loc>
     <lastmod>2025-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="bn" href="https://arthixa.com/arthanex/bn"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://arthixa.com/arthanex"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://arthixa.com/arthanex/hi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthixa.com/arthanex"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://github.com/Pintusikder/ArthaNex/bn"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://github.com/Pintusikder/ArthaNex"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://github.com/Pintusikder/ArthaNex/hi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://github.com/Pintusikder/ArthaNex"/>
   </url>
 
   <!-- Hindi Version -->
   <url>
-    <loc>https://arthixa.com/arthanex/hi</loc>
+    <loc>https://github.com/Pintusikder/ArthaNex/hi</loc>
     <lastmod>2025-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://arthixa.com/arthanex/hi"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://arthixa.com/arthanex"/>
-    <xhtml:link rel="alternate" hreflang="bn" href="https://arthixa.com/arthanex/bn"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://arthixa.com/arthanex"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://github.com/Pintusikder/ArthaNex/hi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://github.com/Pintusikder/ArthaNex"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://github.com/Pintusikder/ArthaNex/bn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://github.com/Pintusikder/ArthaNex"/>
   </url>
 
   <!-- Privacy Policy -->
